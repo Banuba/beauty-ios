@@ -60,6 +60,7 @@ class CameraViewController: UIViewController {
     
     private var currentEffectId: EffectTypes = .beauty
     private var currentBeautificationLevel: BeautificationLevels = .low
+    private var currentEffect: BNBEffect? = nil
     
     private var beautyParametrs = [String: Float]()
     
@@ -90,7 +91,7 @@ class CameraViewController: UIViewController {
         effectView?.effectPlayer = sdkManager.effectPlayer
 
         sdkManager.setRenderTarget(layer: effectView?.layer as! CAEAGLLayer, playerConfiguration: nil)
-        sdkManager.effectPlayer?.loadEffect(Defaults.effects[.beauty]!)
+        currentEffect = sdkManager.loadEffect(Defaults.effects[.beauty]!)
         
         sdkManager.input.startCamera()
         sdkManager.startEffectPlayer()
@@ -122,7 +123,7 @@ class CameraViewController: UIViewController {
         beautificationLevelPickerHandler?.didSelectRow = { [weak self] BeautificationLevel in
             guard let self = self else { return }
             self.currentBeautificationLevel = BeautificationLevel
-            self.sdkManager.effectPlayer?.callJsMethod("onDataUpdate", params: "\(BeautificationLevel.rawValue)")
+            self.currentEffect?.callJsMethod("onDataUpdate", params: "\(BeautificationLevel.rawValue)")
             
             let controls = self.getControlsForDegreePickerAction()
             self.updateControls(visibleControls: controls.visibleControls, hiddenControls: controls.hiddenControls)
@@ -141,12 +142,12 @@ class CameraViewController: UIViewController {
             let currentEffect = Defaults.effects[effectId]!
             let controls = self.getControlsForEffectPickerAction()
             
-            self.sdkManager.loadEffect(currentEffect)
+            self.currentEffect = self.sdkManager.loadEffect(currentEffect)
             self.updateControls(visibleControls: controls.visibleControls, hiddenControls: controls.hiddenControls)
             
             if effectId != .beauty {
                 let colorString = self.currentColor.getColorStringRepresentation(withAlpha: self.currentAlpha)
-                self.sdkManager.effectPlayer?.callJsMethod("setColor", params: colorString)
+                self.currentEffect?.callJsMethod("setColor", params: colorString)
             }
         }
     }
@@ -164,14 +165,14 @@ extension CameraViewController {
         self.currentColor = currentColor
         
         let colorString = self.currentColor.getColorStringRepresentation(withAlpha: self.currentAlpha)
-        sdkManager.effectPlayer?.callJsMethod("setColor", params: colorString)
+        self.currentEffect?.callJsMethod("setColor", params: colorString)
     }
     
     @IBAction func alphaChangeAction(_ sender: UISlider) {
         currentAlpha = sender.value
         
         let colorString = self.currentColor.getColorStringRepresentation(withAlpha: self.currentAlpha)
-        sdkManager.effectPlayer?.callJsMethod("setColor", params: colorString)
+        self.currentEffect?.callJsMethod("setColor", params: colorString)
     }
 }
 
@@ -335,7 +336,7 @@ extension CameraViewController {
 extension CameraViewController {
     private func applyBeautyParams() {
         let params = self.getBeautyParamsStringRepresentation()
-        self.sdkManager.effectPlayer?.callJsMethod("onDataUpdate", params: params)
+        self.currentEffect?.callJsMethod("onDataUpdate", params: params)
     }
     
     private func getBeautyParamsStringRepresentation() -> String {
