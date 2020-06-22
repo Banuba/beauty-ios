@@ -1,4 +1,4 @@
-Examples show virtual makeup try on and face touch up software features which you can implemented with [Banuba SDK on iOS](https://docs.banuba.com/docs/ios/ios_getting_started). Banuba SDK includes neural networks for lips, hair and skin detection and provides face touch up effect featuring skin smoothing, makeup filter, face morphing and teeth whitening.
+Examples show virtual makeup try on and face touch up software features which you can implement with [Banuba SDK on iOS](https://docs.banuba.com/docs/ios/ios_getting_started). Banuba SDK includes neural networks for lips, hair and skin detection and provides face touch up effect featuring skin smoothing, makeup filter, face morphing and teeth whitening.
 
 # Getting Started
 
