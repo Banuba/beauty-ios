@@ -87,7 +87,7 @@ class CameraViewController: UIViewController {
     }
     
     private func setupSDKManager() {
-        sdkManager.setup(configuration: EffectPlayerConfinguration(renderMode: .video))
+        sdkManager.setup(configuration: EffectPlayerConfiguration(renderMode: .video))
         effectView?.effectPlayer = sdkManager.effectPlayer
 
         sdkManager.setRenderTarget(layer: effectView?.layer as! CAEAGLLayer, playerConfiguration: nil)
