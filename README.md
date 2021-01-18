@@ -8,7 +8,7 @@ Examples show virtual makeup try on and face touch up features which you can imp
     `BNBEffectPlayer/src/BanubaSdk/BanubaSdk/BanubaSdk` => `beauty-ios/Frameworks/`
     `BNBEffectPlayer/src/BanubaSdk/BanubaSdk/BanubaSdk.xcodeproj` => `beauty-ios/Frameworks/`
 3. Copy and Paste your client token into appropriate section of `beauty-ios/beauty-ios/Helpers/BanubaClientToken.swift`
-4. Open the project in xCode, open `beauty-ios/Frameworks/BanubaSdk.xcodeproj`
+4. Open the project in xCode, open `beauty-ios/beauty-ios.xcodeproj`
 5. Under `General` tab for BanubaSdk target delete the existing reference to `BanubaEffectPlayer.framework` and add a correct location for BanubaEffectPlayer which was copied during step 2.
 6. Run the example.
 
