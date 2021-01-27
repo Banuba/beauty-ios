@@ -3,8 +3,8 @@ Examples show virtual makeup try on and face touch up features which you can imp
 # Getting Started
 
 1. Get the latest Banuba SDK archive for iOS and the client token. Please fill in our form on [form on banuba.com](https://www.banuba.com/face-filters-sdk) website, or contact us via [info@banuba.com](mailto:info@banuba.com).
-2. Copy `BanubaEffectPlayer.framework` and `BanubaSdk` project folder from the Banuba SDK archive into `Frameworks` dir:
-    `BNBEffectPlayer/bin/BanubaEffectPlayer.framework` => `beauty-ios/Frameworks/`
+2. Copy `BanubaEffectPlayer.xcframework` and `BanubaSdk` project folder from the Banuba SDK archive into `Frameworks` dir:
+    `BNBEffectPlayer/bin/BanubaEffectPlayer.xcframework` => `beauty-ios/Frameworks/`
     `BNBEffectPlayer/src/BanubaSdk/BanubaSdk/BanubaSdk` => `beauty-ios/Frameworks/`
     `BNBEffectPlayer/src/BanubaSdk/BanubaSdk/BanubaSdk.xcodeproj` => `beauty-ios/Frameworks/`
 3. Copy and Paste your client token into appropriate section of `beauty-ios/beauty-ios/Helpers/BanubaClientToken.swift`

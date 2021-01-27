@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1315CE3825B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; };
+		1315CE3925B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1315CE4325B5B4B1002ED0D6 /* BanubaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */; };
+		1315CE4425B5B4B1002ED0D6 /* BanubaSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A61EC9823FFDB3E00469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */; };
 		8A61EC9C23FFDB3E00469AB3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */; };
 		8A61EC9F23FFDB3E00469AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A61EC9D23FFDB3E00469AB3 /* Main.storyboard */; };
@@ -16,18 +20,14 @@
 		8ADD9A022404053C00644AEF /* BeautificationLevelPickerViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD9A002404053C00644AEF /* BeautificationLevelPickerViewHandler.swift */; };
 		8ADD9A1F2405208D00644AEF /* BeautyCollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD9A1E2405208D00644AEF /* BeautyCollectionViewHandler.swift */; };
 		8ADD9A2924054F6400644AEF /* BeautificationTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD9A2824054F6400644AEF /* BeautificationTableViewHandler.swift */; };
-		8AF095722411227100752AFA /* BanubaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF0956D241121FB00752AFA /* BanubaSdk.framework */; };
-		8AF095732411227100752AFA /* BanubaSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF0956D241121FB00752AFA /* BanubaSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA283412242B6D61001D5A31 /* BanubaEffectPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF0956E241121FB00752AFA /* BanubaEffectPlayer.framework */; };
-		BA283413242B6D61001D5A31 /* BanubaEffectPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF0956E241121FB00752AFA /* BanubaEffectPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BAB41D662417B11C00750CFB /* beauty_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB41D652417B11C00750CFB /* beauty_iosUITests.swift */; };
 		BAB41D6E2417B2F600750CFB /* beauty_iosUITestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB41D6D2417B2F600750CFB /* beauty_iosUITestBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8AF0956C241121FB00752AFA /* PBXContainerItemProxy */ = {
+		1315CE3F25B5B4A6002ED0D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8AF09568241121FB00752AFA /* BanubaSdk.xcodeproj */;
+			containerPortal = 1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 57AB757820FF4A240013C11F;
 			remoteInfo = BanubaSdk;
@@ -48,8 +48,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8AF095732411227100752AFA /* BanubaSdk.framework in Embed Frameworks */,
-				BA283413242B6D61001D5A31 /* BanubaEffectPlayer.framework in Embed Frameworks */,
+				1315CE4425B5B4B1002ED0D6 /* BanubaSdk.framework in Embed Frameworks */,
+				1315CE3925B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BanubaEffectPlayer.xcframework; sourceTree = "<group>"; };
+		1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BanubaSdk.xcodeproj; path = BanubaSdk/BanubaSdk.xcodeproj; sourceTree = "<group>"; };
 		8A61EC9423FFDB3E00469AB3 /* beauty-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "beauty-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -68,8 +70,6 @@
 		8ADD9A002404053C00644AEF /* BeautificationLevelPickerViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautificationLevelPickerViewHandler.swift; sourceTree = "<group>"; };
 		8ADD9A1E2405208D00644AEF /* BeautyCollectionViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyCollectionViewHandler.swift; sourceTree = "<group>"; };
 		8ADD9A2824054F6400644AEF /* BeautificationTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautificationTableViewHandler.swift; sourceTree = "<group>"; };
-		8AF09568241121FB00752AFA /* BanubaSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BanubaSdk.xcodeproj; sourceTree = "<group>"; };
-		8AF0956E241121FB00752AFA /* BanubaEffectPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BanubaEffectPlayer.framework; sourceTree = "<group>"; };
 		BAB41D632417B11C00750CFB /* beauty-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "beauty-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB41D652417B11C00750CFB /* beauty_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beauty_iosUITests.swift; sourceTree = "<group>"; };
 		BAB41D672417B11C00750CFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF095722411227100752AFA /* BanubaSdk.framework in Frameworks */,
-				BA283412242B6D61001D5A31 /* BanubaEffectPlayer.framework in Frameworks */,
+				1315CE4325B5B4B1002ED0D6 /* BanubaSdk.framework in Frameworks */,
+				1315CE3825B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1315CE3C25B5B4A5002ED0D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8A61EC8B23FFDB3E00469AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -143,18 +151,10 @@
 		8AF0951624111E9E00752AFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8AF0956E241121FB00752AFA /* BanubaEffectPlayer.framework */,
-				8AF09568241121FB00752AFA /* BanubaSdk.xcodeproj */,
+				1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */,
+				1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		8AF09569241121FB00752AFA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8AF0956D241121FB00752AFA /* BanubaSdk.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BAB41D642417B11C00750CFB /* beauty-iosUITests */ = {
@@ -238,8 +238,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8AF09569241121FB00752AFA /* Products */;
-					ProjectRef = 8AF09568241121FB00752AFA /* BanubaSdk.xcodeproj */;
+					ProductGroup = 1315CE3C25B5B4A5002ED0D6 /* Products */;
+					ProjectRef = 1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -251,11 +251,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8AF0956D241121FB00752AFA /* BanubaSdk.framework */ = {
+		1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = BanubaSdk.framework;
-			remoteRef = 8AF0956C241121FB00752AFA /* PBXContainerItemProxy */;
+			remoteRef = 1315CE3F25B5B4A6002ED0D6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -444,7 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NEWUB88C7M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/beauty-ios/Frameworks",
@@ -469,7 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NEWUB88C7M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/beauty-ios/Frameworks",
