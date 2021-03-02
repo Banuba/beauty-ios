@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1315CE3825B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; };
-		1315CE3925B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1315CE4325B5B4B1002ED0D6 /* BanubaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */; };
-		1315CE4425B5B4B1002ED0D6 /* BanubaSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		70A269E125EE76CA0045A9B8 /* BanubaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */; };
+		70A269E225EE76CA0045A9B8 /* BanubaSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		70A269E525EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; };
+		70A269E625EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A61EC9823FFDB3E00469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */; };
 		8A61EC9C23FFDB3E00469AB3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */; };
 		8A61EC9F23FFDB3E00469AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A61EC9D23FFDB3E00469AB3 /* Main.storyboard */; };
@@ -25,9 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1315CE3F25B5B4A6002ED0D6 /* PBXContainerItemProxy */ = {
+		70A269DC25EE767D0045A9B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */;
+			containerPortal = 70A269D825EE767D0045A9B8 /* BanubaSdk.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 57AB757820FF4A240013C11F;
 			remoteInfo = BanubaSdk;
@@ -42,14 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8ADD99EA2403C27100644AEF /* Embed Frameworks */ = {
+		70A269E325EE76CA0045A9B8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1315CE4425B5B4B1002ED0D6 /* BanubaSdk.framework in Embed Frameworks */,
-				1315CE3925B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Embed Frameworks */,
+				70A269E625EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Embed Frameworks */,
+				70A269E225EE76CA0045A9B8 /* BanubaSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +58,7 @@
 
 /* Begin PBXFileReference section */
 		1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BanubaEffectPlayer.xcframework; sourceTree = "<group>"; };
-		1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BanubaSdk.xcodeproj; path = BanubaSdk/BanubaSdk.xcodeproj; sourceTree = "<group>"; };
+		70A269D825EE767D0045A9B8 /* BanubaSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BanubaSdk.xcodeproj; sourceTree = "<group>"; };
 		8A61EC9423FFDB3E00469AB3 /* beauty-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "beauty-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1315CE4325B5B4B1002ED0D6 /* BanubaSdk.framework in Frameworks */,
-				1315CE3825B5B497002ED0D6 /* BanubaEffectPlayer.xcframework in Frameworks */,
+				70A269E525EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Frameworks */,
+				70A269E125EE76CA0045A9B8 /* BanubaSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,10 +96,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1315CE3C25B5B4A5002ED0D6 /* Products */ = {
+		70A269D925EE767D0045A9B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */,
+				70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,8 +151,8 @@
 		8AF0951624111E9E00752AFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70A269D825EE767D0045A9B8 /* BanubaSdk.xcodeproj */,
 				1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */,
-				1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 				8A61EC9023FFDB3E00469AB3 /* Sources */,
 				8A61EC9123FFDB3E00469AB3 /* Frameworks */,
 				8A61EC9223FFDB3E00469AB3 /* Resources */,
-				8ADD99EA2403C27100644AEF /* Embed Frameworks */,
+				70A269E325EE76CA0045A9B8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,8 +238,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1315CE3C25B5B4A5002ED0D6 /* Products */;
-					ProjectRef = 1315CE3B25B5B4A5002ED0D6 /* BanubaSdk.xcodeproj */;
+					ProductGroup = 70A269D925EE767D0045A9B8 /* Products */;
+					ProjectRef = 70A269D825EE767D0045A9B8 /* BanubaSdk.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -251,11 +251,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1315CE4025B5B4A6002ED0D6 /* BanubaSdk.framework */ = {
+		70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = BanubaSdk.framework;
-			remoteRef = 1315CE3F25B5B4A6002ED0D6 /* PBXContainerItemProxy */;
+			remoteRef = 70A269DC25EE767D0045A9B8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -446,10 +446,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/beauty-ios/Frameworks",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
 				INFOPLIST_FILE = "beauty-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -471,10 +468,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/beauty-ios/Frameworks",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
 				INFOPLIST_FILE = "beauty-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
