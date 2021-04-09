@@ -1,0 +1,214 @@
+draw_order = [
+  "TriMBG",
+  "TriBlr",
+  "TriBok",
+  "TriSkn",
+  "!glfx_UPDATE_BG",
+  "retouch",
+  "!glfx_UPDATE_BG",
+  "cut",
+  "mat_eyelash",
+  "!glfx_UPDATE_BG",
+  "QuadHai",
+  "TriAndroid",
+  "TriMHS",
+  "Q0",
+  "Q1",
+  "Q2",
+  "Q3",
+  "!glfx_UPDATE_BG",
+  "TriMat"
+]
+passes = [
+  "df_blur_down1.toml",
+  "df_blur_down2.toml",
+  "df_blur_down3.toml",
+  "df_blur_up3.toml",
+  "df_blur_up2.toml",
+  "df_blur_up1.toml",
+  "bg_mask.toml",
+  "bokeh_h.toml",
+  "bokeh_v.toml",
+  "tex_makeup.toml",
+  "shrink.toml",
+  "bounds.toml",
+  "colored_hair_strand.toml",
+  "v_gblur.toml",
+  "h_gblur.toml"
+]
+no_preload_textures = [ ]
+adjust_znear = 0
+adjust_zfar = 0
+beauty_morph_deltas = ""
+
+[materials.TriMBG]
+vs = "bg.vert"
+fs = "bg.frag"
+blend = "alpha"
+backfaces = false
+colorwrite = true
+shadow = false
+zwrite = false
+ztest = false
+
+  [materials.TriMBG.samplers]
+  bgTex = 0
+
+[materials.TriBlr]
+vs = "bg_blur.vert"
+fs = "bg_blur.frag"
+blend = "alpha"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.TriBok]
+vs = "draw_bokeh.vert"
+fs = "draw_bokeh.frag"
+blend = "alpha"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.TriSkn]
+vs = "skin.vert"
+fs = "skin.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.retouch]
+vs = "retouch.vert"
+fs = "retouch.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = true
+shadow = false
+onface = true
+mouth = true
+
+  [materials.retouch.samplers]
+  tex_softlight = 0
+  tex_makeup = 1
+  tex_highlight = 2
+
+[materials.cut]
+vs = "cut.vert"
+fs = "cut.frag"
+blend = "off"
+backfaces = false
+colorwrite = false
+zwrite = true
+shadow = false
+samplers = { }
+
+[materials.mat_eyelash]
+vs = "eyelashes3d.vert"
+fs = "eyelashes3d.frag"
+blend = "alpha"
+backfaces = true
+colorwrite = true
+zwrite = true
+shadow = false
+
+  [materials.mat_eyelash.samplers]
+  tex_diffuse = 0
+
+[materials.QuadHai]
+vs = "hair_grad.vert"
+fs = "hair_grad.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.TriAndroid]
+vs = "hair_a.vert"
+fs = "hair.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.TriMHS]
+vs = "hair_strand.vert"
+fs = "hair_strand.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = false
+shadow = false
+samplers = { }
+
+[materials.Q0]
+vs = "lips.vert"
+fs = "lips.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.Q1]
+vs = "leye.vert"
+fs = "leye.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.Q2]
+vs = "reye.vert"
+fs = "reye.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+samplers = { }
+
+[materials.Q3]
+vs = "lips_shine.vert"
+fs = "lips_shine.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
+shadow = false
+
+  [materials.Q3.samplers]
+  noise_tex = "n64_point_tile.png"
+
+[materials.TriMat]
+vs = "fstri.vert"
+fs = "lut.frag"
+blend = "off"
+backfaces = true
+shadow = false
+ztest = false
+zwrite = false
+samplers = { }

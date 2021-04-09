@@ -1,0 +1,19 @@
+size_factor=1.0
+
+[[color_attachment]]
+format = "rgb8"
+clear = [0, 0, 0, 0]
+start = "clear" # "dont_care", "clear", "load"
+finish = "save" # "discard", "save"
+sampler = "v_gblur"
+sampler_type = "2D"
+
+[[pipeline]]
+material="TriMHS"
+vs = "general.vert"
+fs = "v_gblur.frag"
+blend = "off"
+backfaces = false
+colorwrite = true
+zwrite = false
+ztest = false
