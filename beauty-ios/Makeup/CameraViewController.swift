@@ -195,7 +195,6 @@ extension CameraViewController {
     @IBAction func resetPlayer(_ sender: UIButton) {
         sdkManager.destroyEffectPlayer()
         setupSDKManager()
-        currentEffect = sdkManager.loadEffect("Makeup", synchronous: false)
     }
     
     @IBAction func makePhoto(_ sender: UIButton) {
