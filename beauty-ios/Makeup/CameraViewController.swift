@@ -91,14 +91,17 @@ class CameraViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()
-        setupSDKManager()
         sdkManager.input.startCamera()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupSDKManager()
     }
     
     private func setupSDKManager() {
         sdkManager.setup(configuration: EffectPlayerConfiguration(
-                            renderMode: .photo,
-                            renderContentMode: .resizeAspectFill))
+                            renderMode: .photo))
         effectView?.effectPlayer = sdkManager.effectPlayer
         guard let layer = effectView?.layer as? CAEAGLLayer else { return }
         sdkManager.setRenderTarget(layer: layer, playerConfiguration: nil)
