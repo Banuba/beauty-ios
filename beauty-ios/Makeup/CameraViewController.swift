@@ -91,12 +91,12 @@ class CameraViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()
-        sdkManager.input.startCamera()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupSDKManager()
+        sdkManager.input.startCamera()
     }
     
     private func setupSDKManager() {
