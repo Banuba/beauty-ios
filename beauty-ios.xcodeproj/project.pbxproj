@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		705CD97C261B04D300AF808D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705CD97B261B04D300AF808D /* Assets.xcassets */; };
 		70A269E125EE76CA0045A9B8 /* BanubaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */; };
 		70A269E225EE76CA0045A9B8 /* BanubaSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		70A269E525EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; };
 		70A269E625EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		70F658B52617522F002618FE /* EffectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F658B42617522F002618FE /* EffectCollectionViewCell.swift */; };
 		8A61EC9823FFDB3E00469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */; };
 		8A61EC9C23FFDB3E00469AB3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */; };
 		8A61EC9F23FFDB3E00469AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A61EC9D23FFDB3E00469AB3 /* Main.storyboard */; };
 		8A61ED2723FFE03600469AB3 /* BanubaClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61ED2623FFE03600469AB3 /* BanubaClientToken.swift */; };
 		8A61ED2A23FFE05C00469AB3 /* effects in Resources */ = {isa = PBXBuildFile; fileRef = 8A61ED2823FFE05200469AB3 /* effects */; };
-		8ADD9A012404053C00644AEF /* EffectPickerViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD99FF2404053C00644AEF /* EffectPickerViewHandler.swift */; };
-		8ADD9A022404053C00644AEF /* BeautificationLevelPickerViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD9A002404053C00644AEF /* BeautificationLevelPickerViewHandler.swift */; };
-		8ADD9A1F2405208D00644AEF /* BeautyCollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD9A1E2405208D00644AEF /* BeautyCollectionViewHandler.swift */; };
-		8ADD9A2924054F6400644AEF /* BeautificationTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD9A2824054F6400644AEF /* BeautificationTableViewHandler.swift */; };
 		BAB41D662417B11C00750CFB /* beauty_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB41D652417B11C00750CFB /* beauty_iosUITests.swift */; };
 		BAB41D6E2417B2F600750CFB /* beauty_iosUITestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB41D6D2417B2F600750CFB /* beauty_iosUITestBase.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +56,9 @@
 
 /* Begin PBXFileReference section */
 		1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BanubaEffectPlayer.xcframework; sourceTree = "<group>"; };
+		705CD97B261B04D300AF808D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70A269D825EE767D0045A9B8 /* BanubaSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BanubaSdk.xcodeproj; sourceTree = "<group>"; };
+		70F658B42617522F002618FE /* EffectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A61EC9423FFDB3E00469AB3 /* beauty-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "beauty-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -66,10 +66,6 @@
 		8A61ECA523FFDB3F00469AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A61ED2623FFE03600469AB3 /* BanubaClientToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BanubaClientToken.swift; sourceTree = "<group>"; };
 		8A61ED2823FFE05200469AB3 /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
-		8ADD99FF2404053C00644AEF /* EffectPickerViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectPickerViewHandler.swift; sourceTree = "<group>"; };
-		8ADD9A002404053C00644AEF /* BeautificationLevelPickerViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautificationLevelPickerViewHandler.swift; sourceTree = "<group>"; };
-		8ADD9A1E2405208D00644AEF /* BeautyCollectionViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyCollectionViewHandler.swift; sourceTree = "<group>"; };
-		8ADD9A2824054F6400644AEF /* BeautificationTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautificationTableViewHandler.swift; sourceTree = "<group>"; };
 		BAB41D632417B11C00750CFB /* beauty-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "beauty-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB41D652417B11C00750CFB /* beauty_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beauty_iosUITests.swift; sourceTree = "<group>"; };
 		BAB41D672417B11C00750CFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		705CD983261B0A2600AF808D /* Makeup */ = {
+			isa = PBXGroup;
+			children = (
+				8A61EC9D23FFDB3E00469AB3 /* Main.storyboard */,
+				8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */,
+				70F658B42617522F002618FE /* EffectCollectionViewCell.swift */,
+			);
+			path = Makeup;
+			sourceTree = "<group>";
+		};
 		70A269D925EE767D0045A9B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,9 +113,9 @@
 		8A61EC8B23FFDB3E00469AB3 = {
 			isa = PBXGroup;
 			children = (
-				8AF0951624111E9E00752AFA /* Frameworks */,
 				8A61EC9623FFDB3E00469AB3 /* beauty-ios */,
 				BAB41D642417B11C00750CFB /* beauty-iosUITests */,
+				8AF0951624111E9E00752AFA /* Frameworks */,
 				8A61EC9523FFDB3E00469AB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,26 +132,14 @@
 		8A61EC9623FFDB3E00469AB3 /* beauty-ios */ = {
 			isa = PBXGroup;
 			children = (
-				8A61ED2823FFE05200469AB3 /* effects */,
-				8ADD99FE2404053C00644AEF /* Helpers */,
 				8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */,
-				8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */,
-				8A61EC9D23FFDB3E00469AB3 /* Main.storyboard */,
+				8A61ED2623FFE03600469AB3 /* BanubaClientToken.swift */,
+				705CD983261B0A2600AF808D /* Makeup */,
+				8A61ED2823FFE05200469AB3 /* effects */,
 				8A61ECA523FFDB3F00469AB3 /* Info.plist */,
+				705CD97B261B04D300AF808D /* Assets.xcassets */,
 			);
 			path = "beauty-ios";
-			sourceTree = "<group>";
-		};
-		8ADD99FE2404053C00644AEF /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				8A61ED2623FFE03600469AB3 /* BanubaClientToken.swift */,
-				8ADD99FF2404053C00644AEF /* EffectPickerViewHandler.swift */,
-				8ADD9A002404053C00644AEF /* BeautificationLevelPickerViewHandler.swift */,
-				8ADD9A1E2405208D00644AEF /* BeautyCollectionViewHandler.swift */,
-				8ADD9A2824054F6400644AEF /* BeautificationTableViewHandler.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		8AF0951624111E9E00752AFA /* Frameworks */ = {
@@ -266,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A61ED2A23FFE05C00469AB3 /* effects in Resources */,
+				705CD97C261B04D300AF808D /* Assets.xcassets in Resources */,
 				8A61EC9F23FFDB3E00469AB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,10 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A61EC9C23FFDB3E00469AB3 /* CameraViewController.swift in Sources */,
-				8ADD9A1F2405208D00644AEF /* BeautyCollectionViewHandler.swift in Sources */,
-				8ADD9A022404053C00644AEF /* BeautificationLevelPickerViewHandler.swift in Sources */,
-				8ADD9A012404053C00644AEF /* EffectPickerViewHandler.swift in Sources */,
-				8ADD9A2924054F6400644AEF /* BeautificationTableViewHandler.swift in Sources */,
+				70F658B52617522F002618FE /* EffectCollectionViewCell.swift in Sources */,
 				8A61EC9823FFDB3E00469AB3 /* AppDelegate.swift in Sources */,
 				8A61ED2723FFE03600469AB3 /* BanubaClientToken.swift in Sources */,
 			);
@@ -329,6 +321,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					arm64,
+					x86_64,
+				);
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -361,6 +357,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -389,6 +386,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					arm64,
+					x86_64,
+				);
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -421,6 +422,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -457,7 +459,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -479,7 +480,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};

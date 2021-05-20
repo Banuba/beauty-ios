@@ -1,0 +1,20 @@
+width = 0
+height = 640
+
+[[color_attachment]]
+format = "rgba8"
+clear = [0, 0, 0, 0]
+start = "dont_care" # "dont_care", "clear", "load"
+finish = "save" # "discard", "save"
+sampler = "bokeh"
+sampler_type = "2D"
+
+[[pipeline]]
+material="TriBok"
+vs = "bokeh.vert"
+fs = "bokeh.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false

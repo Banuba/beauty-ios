@@ -1,0 +1,19 @@
+size_factor = 0.125
+
+[[color_attachment]]
+format = "rgba8"
+clear = [0, 0, 0, 0]
+start = "dont_care" # "dont_care", "clear", "load"
+finish = "save" # "discard", "save"
+sampler = "tex_df_blur_d3"
+sampler_type = "2D"
+
+[[pipeline]]
+material="TriBlr"
+vs = "df_blur_down.vert"
+fs = "df_blur_down3.frag"
+blend = "off"
+backfaces = true
+colorwrite = true
+zwrite = false
+ztest = false
