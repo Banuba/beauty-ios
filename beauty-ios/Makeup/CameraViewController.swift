@@ -5,31 +5,31 @@ import BanubaEffectPlayer
 private struct Defaults {
     
     static let makeupArray = [
-        ["Highlighting", "Highlighter.color", "Highlighter.clear"],
-        ["Contouring", "Contour.color", "Contour.clear"],
-        ["Foundation", "Foundation.color", "Foundation.clear"],
-        ["Skin smoothing","Foundation.strength","Foundation.clear"],
-        ["Blush", "Blush.color", "Blush.clear"],
-        ["Softlight", "Softlight.strength", "Softlight.strength"],
-        ["EyeLiner", "Eyeliner.color", "Eyeliner.clear"],
-        ["Eyeshadow", "Eyeshadow.color", "Eyeshadow.clear"],
-        ["Eyelashes", "Eyelashes.color", "Eyelashes.clear"],
+        ["Highlighting", "Makeup.highlighter", "Makeup.clear"],
+        ["Contouring", "Makeup.contour", "Makeup.clear"],
+        ["Foundation", "Skin.color", "Makeup.clear"],
+        ["Skin softening","Skin.softening","Makeup.clear"],
+        ["Blush", "Makeup.blushes", "Makeup.clear"],
+        ["Softlight", "Softlight.strength", "Makeup.clear"],
+        ["EyeLiner", "Makeup.eyeliner", "Makeup.clear"],
+        ["Eyeshadow", "Makeup.eyeshadow", "Makeup.clear"],
+        ["Eyelashes", "Makeup.lashes", "Makeup.clear"],
         ["Matt lipstick", "Lips.matt", "Lips.clear"],
         ["Shiny lipstick", "Lips.shiny", "Lips.clear"],
         ["Glitter lipstick", "Lips.glitter", "Lips.clear"],
     ]
     
     static let facebeautyArray = [
-        ["Teeth whitening", "TeethWhitening.strength", "TeethWhitening.strength"],
-        ["Eyes morphing", "FaceMorph.eyes", "FaceMorph.eyes"],
-        ["Face morphing", "FaceMorph.face", "FaceMorph.face"],
-        ["Nose morphing", "FaceMorph.nose", "FaceMorph.nose"],
-        ["Skin softening", "SkinSoftening.strength", "SkinSoftening.strength"],
+        ["Teeth whitening", "Teeth.whitening", "TeethWhitening.strength"],
+        ["Eyes morphing", "FaceMorph.eyes", "FaceMorph.clear"],
+        ["Face morphing", "FaceMorph.face", "FaceMorph.clear"],
+        ["Nose morphing", "FaceMorph.nose", "FaceMorph.clear"],
+        ["Skin softening", "Skin.softening", "Skin.softening"],
         ["Skin coloring", "Skin.color", "Skin.clear"],
         ["Hair coloring", "Hair.color", "Hair.clear"],
-        ["Eyes coloring", "EyesColor.color", "EyesColor.clear"],
-        ["Eye flare", "EyesFlare.strength", "EyesFlare.strength"],
-        ["Eyes whitening", "EyesWhitening.strength", "EyesWhitening.strength"]
+        ["Eyes coloring", "Eyes.color", "Eyes.clear"],
+        ["Eye flare", "Eyes.flare", "Eyes.flare"],
+        ["Eyes whitening", "Eyes.whitening", "Eyes.whitening"]
     ]
     
     static let colorArray = [
@@ -101,10 +101,8 @@ class CameraViewController: UIViewController {
     
     private func setupSDKManager() {
         sdkManager.setup(configuration: EffectPlayerConfiguration(
-                            renderMode: .photo))
-        effectView?.effectPlayer = sdkManager.effectPlayer
-        guard let layer = effectView?.layer as? CAEAGLLayer else { return }
-        sdkManager.setRenderTarget(layer: layer, playerConfiguration: nil)
+                            renderMode: renderMode))
+        sdkManager.setRenderTarget(view: effectView, playerConfiguration: nil)
         currentEffect = sdkManager.loadEffect("Makeup", synchronous: false)
         sdkManager.startEffectPlayer()
     }
