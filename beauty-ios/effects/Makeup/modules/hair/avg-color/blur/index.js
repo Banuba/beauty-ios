@@ -15,48 +15,36 @@ const blur_up$1 = require('./blur_up.frag.js');
 
 function Blur(texture, radius) {
     const blueRadius = new attribute.Vector4(radius);
-
     const steps = 4;
-
     for (let i = 0; i < steps; ++i) {
-      const scale = 1 / Math.pow(2, i);
-
-      texture = new pass.Pass(
-        new material.ShaderMaterial({
-          vertexShader: blur_down['default'],
-          fragmentShader: blur_down$1['default'],
-          uniforms: {
-            tex_camera: texture,
-            var_hair_blur_radius: blueRadius,
-          },
-          state: {
-            blending: "OFF",
-          },
-        }),
-        { scale, filtering: "LINEAR" }
-      );
+        const scale = 1 / Math.pow(2, i);
+        texture = new pass.Pass(new material.ShaderMaterial({
+            vertexShader: blur_down['default'],
+            fragmentShader: blur_down$1['default'],
+            uniforms: {
+                tex_camera: texture,
+                var_hair_blur_radius: blueRadius,
+            },
+            state: {
+                blending: "OFF",
+            },
+        }), { scale, filtering: "LINEAR" });
     }
-
     for (let i = steps - 1; i >= 0; --i) {
-      const scale = 1 / Math.pow(2, i);
-
-      texture = new pass.Pass(
-        new material.ShaderMaterial({
-          vertexShader: blur_up['default'],
-          fragmentShader: blur_up$1['default'],
-          uniforms: {
-            tex_camera: texture,
-            var_hair_blur_radius: blueRadius,
-          },
-          state: {
-            blending: "OFF",
-          },
-        }),
-        { scale, filtering: "LINEAR" }
-      );
+        const scale = 1 / Math.pow(2, i);
+        texture = new pass.Pass(new material.ShaderMaterial({
+            vertexShader: blur_up['default'],
+            fragmentShader: blur_up$1['default'],
+            uniforms: {
+                tex_camera: texture,
+                var_hair_blur_radius: blueRadius,
+            },
+            state: {
+                blending: "OFF",
+            },
+        }), { scale, filtering: "LINEAR" });
     }
-
-    return texture
+    return texture;
 }
 
 exports.Blur = Blur;

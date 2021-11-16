@@ -5,8 +5,8 @@ float filter_mask(float mask)
     const float magnification = 1.25;
     const float treshold = 0.2;
 
-    mask = pow(mask, magnification);
-    mask = max(0., (mask - treshold) / (1. - treshold));
+    // mask = pow(mask, magnification);
+    // mask = max(0., (mask - treshold) / (1. - treshold));
 
     return mask;
 }

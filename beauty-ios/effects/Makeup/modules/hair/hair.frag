@@ -1,6 +1,6 @@
 #include <bnb/glsl.frag>
-#include <bnb/color_spaces.glsl>
 #include "filtered_mask.glsl"
+#include "hsluv.glsl"
 
 BNB_IN(0)
 vec2 var_uv;
@@ -54,34 +54,32 @@ vec4 hair_color_linear(float x)
     return mix(color1, color2, ratio);
 }
 
-vec4 color(vec4 base, vec4 avg_color, vec4 target)
+#define rgb_hsl(v) rgbToHsluv(v)
+#define hsl_rgb(v) hsluvToRgb(v)
+
+vec4 color(vec4 base, vec4 avg_color, vec4 color)
 {
-    vec3 base_LCh = bnb_rgb_to_LCh(base.rgb);
-    vec3 avg_LCh = bnb_rgb_to_LCh(avg_color.rgb);
-    vec3 target_LCh = bnb_rgb_to_LCh(target.rgb);
+    base = rgb_hsl(base);
+    avg_color = rgb_hsl(avg_color);
+    color = rgb_hsl(color);
 
-    float d = base_LCh.x - avg_LCh.x;
-    float c = target_LCh.x / avg_LCh.x;
+    const float a = 0.618;
+    const float b = 1. - a;
 
-    /* Poor man's solution to increase contrast of "dark to light" coloring */
-    c = d > 0. // kepp shine as is
-            ? c
-            : c < 1. // keep shadows as is for "light to dark" recolor
-                  ? c
-                  : pow(c, 1.618); // increase shadows for "dark to lingh" coloring
+    color.z = color.z < avg_color.z
+                  ? color.z
+                  : pow(avg_color.z, a) * pow(color.z, b);
 
-    float dL = d * c;
+    float d = base.z - avg_color.z;
+    float c = sqrt(color.z / avg_color.z);
 
-    vec3 res_LCh = vec3(
-        target_LCh.x + dL,
-        target_LCh.y,
-        target_LCh.z);
+    vec3 res;
+    res.xy = color.xy;
+    res.z = clamp(color.z + d * c, 0., 100.);
 
-    vec3 res_rgb = bnb_LCh_to_rgb(res_LCh);
+    res = hsl_rgb(res);
 
-    vec3 colored = mix(base.rgb, res_rgb, target.a);
-
-    return vec4(colored, base.a);
+    return vec4(res, color.a * avg_color.a);
 }
 
 void main()
@@ -101,5 +99,5 @@ void main()
 
     vec4 colored = color(camera, avg_color, target_color);
 
-    bnb_FragColor = vec4(colored.rgb, mask);
+    bnb_FragColor = vec4(colored.rgb, colored.a * mask);
 }

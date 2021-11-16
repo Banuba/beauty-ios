@@ -2,6 +2,7 @@
   "assets": {
     "images": {
       "camera": {
+        "sort": -1,
         "type": "procedural_texture",
         "algorithm": "camera_composer"
       }
