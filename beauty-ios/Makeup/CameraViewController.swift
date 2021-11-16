@@ -273,8 +273,8 @@ extension CameraViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension CameraViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        try? FileManager.default.removeItem(at: getDocumentsDirectoryImage().appendingPathComponent("makeup.png"))
         let outputUrl = getDocumentsDirectoryImage().appendingPathComponent("makeup.png")
+        try? FileManager.default.removeItem(at: getDocumentsDirectoryImage().appendingPathComponent("makeup.png"))
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             let imageData = pickedImage.pngData()
             try? imageData?.write(to: outputUrl)
@@ -282,7 +282,7 @@ extension CameraViewController: UINavigationControllerDelegate, UIImagePickerCon
                 currentColorMethod,
                 params: currentColor.getColorStringRepresentation(withAlpha: currentAlpha)
             )
-            currentEffect?.callJsMethod("\(currentEffectName).set", params: outputUrl.path)
+            currentEffect?.callJsMethod(currentColorMethod, params: outputUrl.path)
             
         }
         dismiss(animated: true, completion: nil)
