@@ -1,6 +1,6 @@
 import UIKit
-import BanubaSdk
-import BanubaEffectPlayer
+import BNBSdkApi
+import BNBSdkCore
 
 private struct Defaults {
     

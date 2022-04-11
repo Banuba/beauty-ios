@@ -3,23 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		705CD97C261B04D300AF808D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705CD97B261B04D300AF808D /* Assets.xcassets */; };
-		70A269E125EE76CA0045A9B8 /* BanubaSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */; };
-		70A269E225EE76CA0045A9B8 /* BanubaSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70A269DD25EE767D0045A9B8 /* BanubaSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		70A269E525EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; };
-		70A269E625EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		70F658B52617522F002618FE /* EffectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F658B42617522F002618FE /* EffectCollectionViewCell.swift */; };
 		8A61EC9823FFDB3E00469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */; };
 		8A61EC9C23FFDB3E00469AB3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */; };
 		8A61EC9F23FFDB3E00469AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A61EC9D23FFDB3E00469AB3 /* Main.storyboard */; };
 		8A61ED2723FFE03600469AB3 /* BanubaClientToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61ED2623FFE03600469AB3 /* BanubaClientToken.swift */; };
 		8A61ED2A23FFE05C00469AB3 /* effects in Resources */ = {isa = PBXBuildFile; fileRef = 8A61ED2823FFE05200469AB3 /* effects */; };
+		91689142403F54F34E18600B /* Pods_beauty_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5619469D4F3D0CC397A9BE /* Pods_beauty_ios.framework */; };
 		BAB41D662417B11C00750CFB /* beauty_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB41D652417B11C00750CFB /* beauty_iosUITests.swift */; };
 		BAB41D6E2417B2F600750CFB /* beauty_iosUITestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB41D6D2417B2F600750CFB /* beauty_iosUITestBase.swift */; };
+		FCF70E1D20815954D36AEDAB /* Pods_beauty_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22043DD84B6E084A67C5005D /* Pods_beauty_iosUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,26 +37,14 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		70A269E325EE76CA0045A9B8 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				70A269E625EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Embed Frameworks */,
-				70A269E225EE76CA0045A9B8 /* BanubaSdk.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BanubaEffectPlayer.xcframework; sourceTree = "<group>"; };
+		22043DD84B6E084A67C5005D /* Pods_beauty_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beauty_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F5619469D4F3D0CC397A9BE /* Pods_beauty_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beauty_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		705CD97B261B04D300AF808D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70A269D825EE767D0045A9B8 /* BanubaSdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BanubaSdk.xcodeproj; sourceTree = "<group>"; };
 		70F658B42617522F002618FE /* EffectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectCollectionViewCell.swift; sourceTree = "<group>"; };
+		832572821F1E21C286EF692F /* Pods-beauty-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beauty-ios.debug.xcconfig"; path = "Target Support Files/Pods-beauty-ios/Pods-beauty-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8A61EC9423FFDB3E00469AB3 /* beauty-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "beauty-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A61EC9B23FFDB3E00469AB3 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -66,10 +52,13 @@
 		8A61ECA523FFDB3F00469AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A61ED2623FFE03600469AB3 /* BanubaClientToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BanubaClientToken.swift; sourceTree = "<group>"; };
 		8A61ED2823FFE05200469AB3 /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
+		9F686317747B29B573160A47 /* Pods-beauty-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beauty-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-beauty-iosUITests/Pods-beauty-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAB41D632417B11C00750CFB /* beauty-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "beauty-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB41D652417B11C00750CFB /* beauty_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beauty_iosUITests.swift; sourceTree = "<group>"; };
 		BAB41D672417B11C00750CFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAB41D6D2417B2F600750CFB /* beauty_iosUITestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beauty_iosUITestBase.swift; sourceTree = "<group>"; };
+		D3F6EEB29501FCBD996B2C09 /* Pods-beauty-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beauty-ios.release.xcconfig"; path = "Target Support Files/Pods-beauty-ios/Pods-beauty-ios.release.xcconfig"; sourceTree = "<group>"; };
+		DB6C7D8BD17B14AA025D71BE /* Pods-beauty-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beauty-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-beauty-iosUITests/Pods-beauty-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70A269E525EE76CD0045A9B8 /* BanubaEffectPlayer.xcframework in Frameworks */,
-				70A269E125EE76CA0045A9B8 /* BanubaSdk.framework in Frameworks */,
+				91689142403F54F34E18600B /* Pods_beauty_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +74,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF70E1D20815954D36AEDAB /* Pods_beauty_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A1695F5DE5F8007F5B685D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				832572821F1E21C286EF692F /* Pods-beauty-ios.debug.xcconfig */,
+				D3F6EEB29501FCBD996B2C09 /* Pods-beauty-ios.release.xcconfig */,
+				9F686317747B29B573160A47 /* Pods-beauty-iosUITests.debug.xcconfig */,
+				DB6C7D8BD17B14AA025D71BE /* Pods-beauty-iosUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		705CD983261B0A2600AF808D /* Makeup */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +117,7 @@
 				BAB41D642417B11C00750CFB /* beauty-iosUITests */,
 				8AF0951624111E9E00752AFA /* Frameworks */,
 				8A61EC9523FFDB3E00469AB3 /* Products */,
+				3A1695F5DE5F8007F5B685D6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +148,8 @@
 			children = (
 				70A269D825EE767D0045A9B8 /* BanubaSdk.xcodeproj */,
 				1315CE3725B5B497002ED0D6 /* BanubaEffectPlayer.xcframework */,
+				5F5619469D4F3D0CC397A9BE /* Pods_beauty_ios.framework */,
+				22043DD84B6E084A67C5005D /* Pods_beauty_iosUITests.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -168,10 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A61ECA823FFDB3F00469AB3 /* Build configuration list for PBXNativeTarget "beauty-ios" */;
 			buildPhases = (
+				F8B4212320F7184E32DA0953 /* [CP] Check Pods Manifest.lock */,
 				8A61EC9023FFDB3E00469AB3 /* Sources */,
 				8A61EC9123FFDB3E00469AB3 /* Frameworks */,
 				8A61EC9223FFDB3E00469AB3 /* Resources */,
-				70A269E325EE76CA0045A9B8 /* Embed Frameworks */,
+				C1467E6F2EBFA19525FF3027 /* [CP] Embed Pods Frameworks */,
+				9123A19E66EF23703E003EC3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAB41D6C2417B11C00750CFB /* Build configuration list for PBXNativeTarget "beauty-iosUITests" */;
 			buildPhases = (
+				87473CBA293E18478BA5CF3D /* [CP] Check Pods Manifest.lock */,
 				BAB41D5F2417B11C00750CFB /* Sources */,
 				BAB41D602417B11C00750CFB /* Frameworks */,
 				BAB41D612417B11C00750CFB /* Resources */,
@@ -273,6 +279,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		87473CBA293E18478BA5CF3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-beauty-iosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9123A19E66EF23703E003EC3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-beauty-ios/Pods-beauty-ios-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-beauty-ios/Pods-beauty-ios-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-beauty-ios/Pods-beauty-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1467E6F2EBFA19525FF3027 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-beauty-ios/Pods-beauty-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-beauty-ios/Pods-beauty-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-beauty-ios/Pods-beauty-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8B4212320F7184E32DA0953 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-beauty-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A61EC9023FFDB3E00469AB3 /* Sources */ = {
@@ -443,12 +530,12 @@
 		};
 		8A61ECA923FFDB3F00469AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 832572821F1E21C286EF692F /* Pods-beauty-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
 				INFOPLIST_FILE = "beauty-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -464,12 +551,12 @@
 		};
 		8A61ECAA23FFDB3F00469AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3F6EEB29501FCBD996B2C09 /* Pods-beauty-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
 				INFOPLIST_FILE = "beauty-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,6 +572,7 @@
 		};
 		BAB41D6A2417B11C00750CFB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F686317747B29B573160A47 /* Pods-beauty-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NEWUB88C7M;
@@ -504,6 +592,7 @@
 		};
 		BAB41D6B2417B11C00750CFB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB6C7D8BD17B14AA025D71BE /* Pods-beauty-iosUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NEWUB88C7M;
