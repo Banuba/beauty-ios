@@ -1,6 +1,6 @@
 #include <bnb/glsl.frag>
 #include "filtered_mask.glsl"
-#include "hsluv.glsl"
+#include "yuv.glsl"
 
 BNB_IN(0)
 vec2 var_uv;
@@ -13,7 +13,6 @@ BNB_DECLARE_SAMPLER_2D(0, 1, tex_camera);
 BNB_DECLARE_SAMPLER_2D(2, 3, tex_hair_mask);
 BNB_DECLARE_SAMPLER_2D(4, 5, tex_gradient_mask);
 BNB_DECLARE_SAMPLER_2D(6, 7, tex_strands_mask);
-BNB_DECLARE_SAMPLER_2D(8, 9, tex_avg_color);
 
 /*
     in hair_strand mode
@@ -54,50 +53,37 @@ vec4 hair_color_linear(float x)
     return mix(color1, color2, ratio);
 }
 
-#define rgb_hsl(v) rgbToHsluv(v)
-#define hsl_rgb(v) hsluvToRgb(v)
 
-vec4 color(vec4 base, vec4 avg_color, vec4 color)
+vec4 color(vec4 base, vec4 target, float alpha)
 {
-    base = rgb_hsl(base);
-    avg_color = rgb_hsl(avg_color);
-    color = rgb_hsl(color);
+    const float beta = 0.5;
 
-    const float a = 0.618;
-    const float b = 1. - a;
+    vec3 pixel1 = rgb2yuv(base.rgb);
+    vec3 yuv1 = rgb2yuv(target.rgb);
 
-    color.z = color.z < avg_color.z
-                  ? color.z
-                  : pow(avg_color.z, a) * pow(color.z, b);
+    pixel1[1] = mix(pixel1[1], mix(pixel1[1], yuv1[1], beta), alpha);
+    pixel1[2] = mix(pixel1[2], mix(pixel1[2], yuv1[2], beta), alpha);
 
-    float d = base.z - avg_color.z;
-    float c = sqrt(color.z / avg_color.z);
-
-    vec3 res;
-    res.xy = color.xy;
-    res.z = clamp(color.z + d * c, 0., 100.);
-
-    res = hsl_rgb(res);
-
-    return vec4(res, color.a * avg_color.a);
+    return vec4(yuv2rgb(pixel1), target.a);
 }
 
 void main()
 {
+    float var_hair_colors_count = var_hair_colors_count_mode.x;
+    float var_hair_coloring_mode = var_hair_colors_count_mode.y;
     float mask = hair_mask(BNB_PASS_SAMPLER_ARGUMENT(tex_hair_mask), var_hair_mask_uv);
     vec4 camera = BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_camera), var_uv);
-    vec4 avg_color = BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_avg_color), var_uv);
 
     float target_color_idx = 0.;
 
-    if (var_hair_coloring_mode.x == 1.)
-        target_color_idx = gradient_mask(BNB_PASS_SAMPLER_ARGUMENT(tex_gradient_mask), var_uv, var_hair_colors_count.x);
-    if (var_hair_coloring_mode.x == 2.)
+    if (var_hair_coloring_mode == 1.)
+        target_color_idx = gradient_mask(BNB_PASS_SAMPLER_ARGUMENT(tex_gradient_mask), var_uv, var_hair_colors_count);
+    if (var_hair_coloring_mode == 2.)
         target_color_idx = strands_mask(BNB_PASS_SAMPLER_ARGUMENT(tex_strands_mask), var_strands_mask_uv);
 
     vec4 target_color = hair_color_linear(target_color_idx);
 
-    vec4 colored = color(camera, avg_color, target_color);
+    vec4 colored = color(camera, target_color, mask);
 
     bnb_FragColor = vec4(colored.rgb, colored.a * mask);
 }

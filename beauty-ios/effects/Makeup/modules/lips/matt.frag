@@ -53,9 +53,19 @@ vec3 blendColor(vec3 base, vec3 blend, float opacity, vec2 brightness_contrast)
 void main()
 {
     vec4 js_lips_color = vec4(var_lips_color);
-    vec4 js_lips_brightness_contrast = vec4(1.0 - var_lips_saturation.x, var_lips_brightness.x, 0., 0.);
+    vec4 js_lips_brightness_contrast = vec4(1.0 - var_lips_saturation_brightness.x, var_lips_saturation_brightness.y, 0., 0.);
 
-    vec3 bg = BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_camera), var_uv.xy).rgb;
+    float js_color_v = rgb_v(js_lips_color.rgb);
+    const float v_norm = 1. / 0.85;
+    float v_scale = js_color_v * v_norm;
+    js_lips_brightness_contrast.y *= v_scale;
+
+    vec2 uv = var_uv.xy;
+#ifdef BNB_VK_1
+    uv.y = 1. - uv.y;
+#endif
+
+    vec3 bg = BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_camera), uv.xy).rgb;
 
     float alpha = bnb_texture_bicubic(BNB_PASS_SAMPLER_ARGUMENT(tex_lips_mask), var_uv.zw).x;
 

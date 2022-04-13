@@ -9,5 +9,5 @@ void main()
 {
     vec4 lashes = BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_diffuse), var_uv);
 
-    bnb_FragColor = vec4(lashes.rgb + var_lashes_color.rgb, lashes.a * var_lashes_color.a);
+    bnb_FragColor = vec4(lashes.rgb + var_eyelashes_color.rgb, lashes.a * var_lashes_color.a);
 }

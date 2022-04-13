@@ -1,49 +1,53 @@
 'use strict';
 
-const index$a = require('./modules/eye-bags/index.js');
-const index$5 = require('./modules/eyelashes/index.js');
-const index$9 = require('./modules/face-morph/index.js');
-const index$1 = require('./modules/eyes/index.js');
-const index$8 = require('./modules/filter/index.js');
-const index$6 = require('./modules/hair/index.js');
-const index$3 = require('./modules/lips/index.js');
-const index$4 = require('./modules/makeup/index.js');
-const index = require('./modules/skin/index.js');
-const index$7 = require('./modules/softlight/index.js');
-const index$2 = require('./modules/teeth/index.js');
+require('./modules/scene/index.js');
+const modules_faceMorph_index = require('./modules/face-morph/index.js');
+const modules_hair_index = require('./modules/hair/index.js');
+const modules_brows_index = require('./modules/brows/index.js');
+const modules_eyeBags_index = require('./modules/eye-bags/index.js');
+const modules_eyelashes_index = require('./modules/eyelashes/index.js');
+const modules_eyes_index = require('./modules/eyes/index.js');
+const modules_lips_index = require('./modules/lips/index.js');
+const modules_lutFilter_index = require('./modules/lut-filter/index.js');
+const modules_makeup_index = require('./modules/makeup/index.js');
+const modules_skin_index = require('./modules/skin/index.js');
+const modules_softlight_index = require('./modules/softlight/index.js');
+const modules_teeth_index = require('./modules/teeth/index.js');
 const background = require('bnb_js/background');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 const background__default = /*#__PURE__*/_interopDefaultLegacy(background);
 
-bnb.log(`\n\nMakeup API version: ${"1.0.0-b6a049aab6439b564c4e594ba25895d81dfadf8f"}\n`);
-const Skin = new index.Skin();
-const Eyes = new index$1.Eyes();
-const Teeth = new index$2.Teeth();
-const Lips = new index$3.Lips();
-const Makeup = new index$4.Makeup();
-const Eyelashes = new index$5.Eyelashes();
-const Hair = new index$6.Hair();
-const Softlight = new index$7.Softlight();
-const Filter = new index$8.Filter();
-const FaceMorph = new index$9.FaceMorph();
-const EyeBagsRemoval = new index$a.EyeBagsRemoval();
+bnb.log(`\n\nMakeup API version: ${"1.4.0-4b214c5913e2abe72db92421967c2194652455f3"}\n`);
+const Skin = new modules_skin_index.Skin();
+const Eyes = new modules_eyes_index.Eyes();
+const Teeth = new modules_teeth_index.Teeth();
+const Lips = new modules_lips_index.Lips();
+const Makeup = new modules_makeup_index.Makeup();
+const Eyelashes = new modules_eyelashes_index.Eyelashes();
+const Brows = new modules_brows_index.Brows();
+const Softlight = new modules_softlight_index.Softlight();
+const Hair = new modules_hair_index.Hair();
+const Filter = new modules_lutFilter_index.LutFilter();
+const FaceMorph = new modules_faceMorph_index.FaceMorph();
+const EyeBagsRemoval = new modules_eyeBags_index.EyeBagsRemoval();
 
-Object.defineProperty(exports, 'Background', {
-	enumerable: true,
-	get: function () {
-		return background__default['default'];
-	}
+const m = /*#__PURE__*/Object.freeze({
+	__proto__: null,
+	Background: background__default['default'],
+	Skin: Skin,
+	Eyes: Eyes,
+	Teeth: Teeth,
+	Lips: Lips,
+	Makeup: Makeup,
+	Eyelashes: Eyelashes,
+	Brows: Brows,
+	Softlight: Softlight,
+	Hair: Hair,
+	Filter: Filter,
+	FaceMorph: FaceMorph,
+	EyeBagsRemoval: EyeBagsRemoval
 });
-exports.EyeBagsRemoval = EyeBagsRemoval;
-exports.Eyelashes = Eyelashes;
-exports.Eyes = Eyes;
-exports.FaceMorph = FaceMorph;
-exports.Filter = Filter;
-exports.Hair = Hair;
-exports.Lips = Lips;
-exports.Makeup = Makeup;
-exports.Skin = Skin;
-exports.Softlight = Softlight;
-exports.Teeth = Teeth;
+
+exports.m = m;

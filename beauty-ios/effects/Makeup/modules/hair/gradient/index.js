@@ -1,26 +1,26 @@
 'use strict';
 
-require('../../scene/utils.js');
-require('../../scene/geometry.js');
-const material = require('../../scene/material.js');
-const pass = require('../../scene/pass.js');
-require('../../scene/render-target.js');
-require('../../scene/scene.js');
-const texture = require('../../scene/texture.js');
-const index = require('../downscale/index.js');
-const hair_mask = require('./hair_mask.vert.js');
-const hair_mask$1 = require('./hair_mask.frag.js');
-const bounds = require('./bounds.vert.js');
-const bounds$1 = require('./bounds.frag.js');
-const gradient = require('./gradient.vert.js');
-const gradient$1 = require('./gradient.frag.js');
+const modules_scene_index = require('../../scene/index.js');
+const modules_hair_gradient_downscale_index = require('./downscale/index.js');
+
+const HairMaskVertexShader = "modules/hair/gradient/hair_mask.vert";
+
+const HairMaskFragmentShader = "modules/hair/gradient/hair_mask.frag";
+
+const BoundsVertexShader = "modules/hair/gradient/bounds.vert";
+
+const BoundsFragmentShader = "modules/hair/gradient/bounds.frag";
+
+const GradientVertexShader = "modules/hair/gradient/gradient.vert";
+
+const GradientFragmentShader = "modules/hair/gradient/gradient.frag";
 
 function Gradient() {
-    let downscaled = new pass.Pass(new material.ShaderMaterial({
-        vertexShader: hair_mask['default'],
-        fragmentShader: hair_mask$1['default'],
+    let downscaled = new modules_scene_index.Pass(new modules_scene_index.ShaderMaterial({
+        vertexShader: HairMaskVertexShader,
+        fragmentShader: HairMaskFragmentShader,
         uniforms: {
-            tex_mask: new texture.SegmentationMask("HAIR"),
+            tex_mask: new modules_scene_index.SegmentationMask("HAIR"),
         },
         state: {
             blending: "OFF",
@@ -31,11 +31,11 @@ function Gradient() {
     let width = 256;
     const height = width;
     do {
-        downscaled = index.Downscale(downscaled, width, height);
+        downscaled = modules_hair_gradient_downscale_index.Downscale(downscaled, width, height);
     } while ((width /= 2) >= 1);
-    const minmax = new pass.Pass(new material.ShaderMaterial({
-        vertexShader: bounds['default'],
-        fragmentShader: bounds$1['default'],
+    const minmax = new modules_scene_index.Pass(new modules_scene_index.ShaderMaterial({
+        vertexShader: BoundsVertexShader,
+        fragmentShader: BoundsFragmentShader,
         uniforms: {
             tex_mask: downscaled,
         },
@@ -47,9 +47,9 @@ function Gradient() {
         width: 1,
         height: 1,
     });
-    return new pass.Pass(new material.ShaderMaterial({
-        vertexShader: gradient['default'],
-        fragmentShader: gradient$1['default'],
+    return new modules_scene_index.Pass(new modules_scene_index.ShaderMaterial({
+        vertexShader: GradientVertexShader,
+        fragmentShader: GradientFragmentShader,
         uniforms: {
             tex_mask: minmax,
         },
