@@ -6,7 +6,7 @@ source 'https://github.com/sdk-banuba/banuba-sdk-podspecs.git'
 target 'beauty-ios' do
   use_frameworks!
 
-  pod 'BanubaSdk', '1.3.1-202-g4bb89079d5'
+  pod 'BanubaSdk', '1.3.1-206-gbcc59dbf5b'
 
   target 'beauty-iosUITests' do
     inherit! :search_paths
