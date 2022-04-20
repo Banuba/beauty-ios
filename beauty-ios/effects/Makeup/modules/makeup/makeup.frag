@@ -19,9 +19,14 @@ vec4 blend(vec4 base, vec4 target, BNB_DECLARE_SAMPLER_2D_ARGUMENT(tex_mask))
     tex.rgb += target.rgb;
     tex.a *= target.a;
 
-    float a = mix(tex.a, 1., base.a);
-    vec3 rgb = mix(base.rgb, tex.rgb, tex.a);
-    ;
+    // https://gist.github.com/JordanDelcros/518396da1c13f75ee057
+    if (tex.a == 0.)
+        return base;
+    if (base.a == 0.)
+        return tex;
+
+    float a = 1. - (1. - base.a) * (1. - tex.a);
+    vec3 rgb = mix(base.rgb * base.a, tex.rgb, tex.a) / a;
 
     return vec4(rgb, a);
 }
@@ -39,7 +44,7 @@ void main()
     bnb_FragColor = blend(bnb_FragColor, var_blushes_color, BNB_PASS_SAMPLER_ARGUMENT(tex_blushes));
     bnb_FragColor = blend(bnb_FragColor, var_highlighter_color, BNB_PASS_SAMPLER_ARGUMENT(tex_highlighter));
     bnb_FragColor = blend(bnb_FragColor, var_eyeshadow_color, BNB_PASS_SAMPLER_ARGUMENT(tex_eyeshadow));
+    bnb_FragColor = blend(bnb_FragColor, BNB_PASS_SAMPLER_ARGUMENT(tex_makeup));
     bnb_FragColor = blend(bnb_FragColor, var_eyeliner_color, BNB_PASS_SAMPLER_ARGUMENT(tex_eyeliner));
     bnb_FragColor = blend(bnb_FragColor, var_lashes_color, BNB_PASS_SAMPLER_ARGUMENT(tex_lashes));
-    bnb_FragColor = blend(bnb_FragColor, BNB_PASS_SAMPLER_ARGUMENT(tex_makeup));
 }

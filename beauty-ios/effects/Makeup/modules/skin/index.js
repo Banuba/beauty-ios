@@ -1,16 +1,14 @@
 'use strict';
 
-const attribute = require('../scene/attribute.js');
-const geometry = require('../scene/geometry.js');
-const material = require('../scene/material.js');
-const mesh = require('../scene/mesh.js');
-require('../scene/render-target.js');
-const scene = require('../scene/scene.js');
-const texture = require('../scene/texture.js');
-const softening = require('./softening.vert.js');
-const softening$1 = require('./softening.frag.js');
-const skin = require('./skin.vert.js');
-const skin$1 = require('./skin.frag.js');
+const modules_scene_index = require('../scene/index.js');
+
+const SofteningVertexShader = "modules/skin/softening.vert";
+
+const SofteningFragmentShader = "modules/skin/softening.frag";
+
+const SkinVertexShader = "modules/skin/skin.vert";
+
+const SkinFragmentShader = "modules/skin/skin.frag";
 
 class Skin {
     constructor() {
@@ -18,14 +16,14 @@ class Skin {
             enumerable: true,
             configurable: true,
             writable: true,
-            value: new mesh.Mesh(new geometry.PlaneGeometry(), new material.ShaderMaterial({
-                vertexShader: skin['default'],
-                fragmentShader: skin$1['default'],
+            value: new modules_scene_index.Mesh(new modules_scene_index.PlaneGeometry(), new modules_scene_index.ShaderMaterial({
+                vertexShader: SkinVertexShader,
+                fragmentShader: SkinFragmentShader,
                 uniforms: {
-                    tex_camera: new texture.Camera(),
-                    tex_mask: new texture.SegmentationMask("SKIN"),
-                    var_skin_color: new attribute.Vector4(0, 0, 0, 0),
-                    var_skin_softening_strength: new attribute.Vector4(0),
+                    tex_camera: new modules_scene_index.Camera(),
+                    tex_mask: new modules_scene_index.SegmentationMask("SKIN"),
+                    var_skin_color: new modules_scene_index.Vector4(0, 0, 0, 0),
+                    var_skin_softening_strength: new modules_scene_index.Vector4(0),
                 },
             }))
         });
@@ -38,13 +36,14 @@ class Skin {
             enumerable: true,
             configurable: true,
             writable: true,
-            value: new mesh.Mesh(new geometry.FaceGeometry(), new material.ShaderMaterial({
-                vertexShader: softening['default'],
-                fragmentShader: softening$1['default'],
+            value: new modules_scene_index.Mesh(new modules_scene_index.FaceGeometry(), new modules_scene_index.ShaderMaterial({
+                vertexShader: SofteningVertexShader,
+                fragmentShader: SofteningFragmentShader,
                 uniforms: {
-                    tex_camera: new texture.Camera(),
+                    tex_camera: new modules_scene_index.Camera(),
                     var_skin_softening_strength: this._skin.material.uniforms.var_skin_softening_strength,
                 },
+                state: { zTest: true, zWrite: true },
             }))
         });
         const onChange = () => {
@@ -61,7 +60,7 @@ class Skin {
         };
         this._skin.material.uniforms.var_skin_color.subscribe(onChange);
         this._skin.material.uniforms.var_skin_softening_strength.subscribe(onChange);
-        scene.add(this._skin, this._softening);
+        modules_scene_index.add(this._skin, this._softening);
     }
     color(color) {
         if (typeof color !== "undefined")

@@ -1,12 +1,14 @@
 'use strict';
 
+const modules_scene_index = require('../scene/index.js');
+
 class EyeBagsRemoval {
     enable() {
-        bnb.scene.enableRecognizerFeature(bnb.FeatureID.EYE_BAGS);
+        modules_scene_index.enable("EYE_BAGS", this);
         return this;
     }
     disable() {
-        bnb.scene.disableRecognizerFeature(bnb.FeatureID.EYE_BAGS);
+        modules_scene_index.disable("EYE_BAGS", this);
         return this;
     }
 }
