@@ -61,14 +61,9 @@ class CameraViewController: UIViewController {
     private var sdkManager = BanubaSdkManager()
     private var effectsArray = [[String]]()
     
-    private var renderMode: EffectPlayerRenderMode = .photo
     private var currentEffect: BNBEffect? = nil
     private var cameraSessionType: CameraSessionType {
-        if isFrontCamera {
-            return renderMode == .photo ? .FrontCameraPhotoSession : .FrontCameraVideoSession
-        } else {
-            return renderMode == .photo ? .BackCameraPhotoSession : .BackCameraVideoSession
-        }
+        return isFrontCamera ? .FrontCameraSession : .BackCameraSession
     }
     private var selectedIndexPath = IndexPath(item: 0, section: 0)
     private var isFrontCamera = true
@@ -100,8 +95,7 @@ class CameraViewController: UIViewController {
     }
     
     private func setupSDKManager() {
-        sdkManager.setup(configuration: EffectPlayerConfiguration(
-                            renderMode: renderMode))
+        sdkManager.setup(configuration: EffectPlayerConfiguration())
         sdkManager.setRenderTarget(view: effectView, playerConfiguration: nil)
         currentEffect = sdkManager.loadEffect("Makeup", synchronous: false)
         sdkManager.startEffectPlayer()
