@@ -97,8 +97,8 @@ class CameraViewController: UIViewController {
     private func setupSDKManager() {
         sdkManager.setup(configuration: EffectPlayerConfiguration())
         sdkManager.setRenderTarget(view: effectView, playerConfiguration: nil)
-        currentEffect = sdkManager.loadEffect("Makeup", synchronous: false)
         sdkManager.startEffectPlayer()
+        currentEffect = sdkManager.loadEffect("Makeup", synchronous: false)
     }
     
     private func hideControls(hideColors: Bool, hideIntensity: Bool) {
