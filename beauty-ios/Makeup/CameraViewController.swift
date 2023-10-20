@@ -58,15 +58,11 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     private let imagePicker = UIImagePickerController()
-    private var sdkManager = BanubaSdkManager()
+    private let cameraDevice = CameraDevice(cameraMode: .FrontCameraSession, captureSessionPreset: .hd1280x720)
+    private var player: Player? = nil
     private var effectsArray = [[String]]()
-    
     private var currentEffect: BNBEffect? = nil
-    private var cameraSessionType: CameraSessionType {
-        return isFrontCamera ? .FrontCameraSession : .BackCameraSession
-    }
     private var selectedIndexPath = IndexPath(item: 0, section: 0)
-    private var isFrontCamera = true
     private var currentEffectName: String = Defaults.makeupArray[0][0]
     private var currentColorMethod: String = Defaults.makeupArray[0][1]
     private var currentClearMethod: String = Defaults.makeupArray[0][2]
@@ -90,15 +86,14 @@ class CameraViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupSDKManager()
-        sdkManager.input.startCamera()
+        cameraDevice.start()
+        setupPlayer()
     }
     
-    private func setupSDKManager() {
-        sdkManager.setup(configuration: EffectPlayerConfiguration())
-        sdkManager.setRenderTarget(view: effectView, playerConfiguration: nil)
-        sdkManager.startEffectPlayer()
-        currentEffect = sdkManager.loadEffect("Makeup", synchronous: false)
+    private func setupPlayer() {
+        player = Player()
+        player?.use(input: Camera(cameraDevice: cameraDevice), outputs: [effectView])
+        currentEffect = player?.load(effect: "Makeup")
     }
     
     private func hideControls(hideColors: Bool, hideIntensity: Bool) {
@@ -181,19 +176,18 @@ extension CameraViewController {
     }
     
     @IBAction func rotateCamera(_ sender: UIButton) {
-        isFrontCamera = !isFrontCamera
-        sdkManager.input.switchCamera(to: cameraSessionType) {
-            print("RotateCamera")
-        }
+        cameraDevice.switchMode()
+        print("RotateCamera")
     }
     
     @IBAction func resetPlayer(_ sender: UIButton) {
-        sdkManager.destroyEffectPlayer()
-        setupSDKManager()
+        player = nil
+        setupPlayer()
+        print("ResetPlayer")
     }
     
     @IBAction func makePhoto(_ sender: UIButton) {
-        sdkManager.makeCameraPhoto(cameraSettings: .init(useStabilization: true, flashMode: .off)) { (image) in
+        let imageOutput = Frame<UIImage>() { image in
             if let image = image {
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Image was successfully saved", message: nil, preferredStyle: .alert)
@@ -201,9 +195,12 @@ extension CameraViewController {
                     self.present(alert, animated: true) {
                         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                     }
+                    self.player?.use(outputs: [self.effectView])
                 }
             }
         }
+
+        player?.use(outputs: [effectView, imageOutput])
     }
     
     @IBAction func changeCategory(_ sender: UISegmentedControl) {
