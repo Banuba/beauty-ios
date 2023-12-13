@@ -1,0 +1,194 @@
+{
+  "pins" : [
+    {
+      "identity" : "banubasdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BanubaSdk",
+      "state" : {
+        "branch" : "master",
+        "revision" : "f74932a8328452e257b3dadbbbcdd51714991ff8"
+      }
+    },
+    {
+      "identity" : "bnbacneeyebagsremoval",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBAcneEyebagsRemoval.git",
+      "state" : {
+        "revision" : "112a27e5c94f00f66631eef83c11bdbbbde71f46",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbbackground",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBBackground.git",
+      "state" : {
+        "revision" : "ca5cbc8f826ca921111177d84f64ab70396c165b",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbbody",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBBody.git",
+      "state" : {
+        "revision" : "4dca26956667ea2cea13f6cc2fa49a67c619f341",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbeffectplayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBEffectPlayer.git",
+      "state" : {
+        "revision" : "ac82b2e2fb0838594bada8f1dfd8dd1e27a3056b",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbeyes",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBEyes.git",
+      "state" : {
+        "revision" : "00cf00e6c9265b5f685c17b1c0cf59a39b9e182c",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbfacematch",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBFaceMatch.git",
+      "state" : {
+        "revision" : "14cb64b383a7105eaafd2c271b0d9399c6a39653",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbfacetracker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBFaceTracker.git",
+      "state" : {
+        "revision" : "93b14370d6e03ca826a23a5dd2002c46a57cd3f7",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbfacetrackerlite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBFaceTrackerLite.git",
+      "state" : {
+        "revision" : "a6ea28d9546637284b0eb9b15f5d0f3783740d2a",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbhair",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBHair.git",
+      "state" : {
+        "revision" : "6240be8b5b39b162e36c57feba5adf4875f00d47",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbhands",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBHands.git",
+      "state" : {
+        "revision" : "4250f40a0876891ce5b110bc5553da081cfcbc59",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnblips",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBLips.git",
+      "state" : {
+        "revision" : "ffb2c248e3520cbe0e8129893e6313df0de9d483",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbneurobeautymakeup",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBNeurobeautyMakeup.git",
+      "state" : {
+        "revision" : "94a7aa484432095aee7463a04a8cef1f9f6f83ee",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbocclusion",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBOcclusion.git",
+      "state" : {
+        "revision" : "06a7ab22b208a914229eff88d089f7eccfad4aac",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbposeestimation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBPoseEstimation.git",
+      "state" : {
+        "revision" : "d733d7f2115b1dd3c897a76ab64ae4c919a3b33b",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbscripting",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBScripting.git",
+      "state" : {
+        "revision" : "2077e028a056d71c135389ea13609e11a41cf490",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbsdkapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBSdkApi.git",
+      "state" : {
+        "revision" : "62cdd9ed1d9c7a229417c1e19f64301bf5229fc8",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbsdkcore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBSdkCore.git",
+      "state" : {
+        "revision" : "7aa05200e5299a9f37f6cb33056573bd69dcc435",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbskin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBSkin.git",
+      "state" : {
+        "revision" : "b88024acea7d6067e1463220a4016ef4f4bbff85",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbvisualclip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBVisualClip.git",
+      "state" : {
+        "revision" : "2263dd0bda5831e04cb7f0ab14f9b313b5d0bdbb",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    },
+    {
+      "identity" : "bnbwatch",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sdk-banuba/BNBWatch.git",
+      "state" : {
+        "revision" : "ec2d80348efbab335696ff883775fdd3c2ee6126",
+        "version" : "1.9.1-69-g431d04ab4a"
+      }
+    }
+  ],
+  "version" : 2
+}

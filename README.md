@@ -6,10 +6,8 @@ Please use [v0.x](../../tree/v0.x) branch for SDK version 0.x (e.g. v0.38).
 # Getting Started
 
 1. Get the Banuba SDK client token. Please fill in our form on [form on banuba.com](https://www.banuba.com/face-filters-sdk) website, or contact us via [info@banuba.com](mailto:info@banuba.com).
-2. Install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) if you don't have it.
-3. Install required project dependencies by running `pod install`.
-4. Copy and Paste your client token into appropriate section of `beauty-ios/beauty-ios/BanubaClientToken.swift`
-5. Open generated workspace (not a project!) in Xcode and run the example.
+2. Copy and Paste your client token into appropriate section of `beauty-ios/beauty-ios/BanubaClientToken.swift`
+3. Open beauty-ios.xcodeproj in Xcode and run the example.
 
 # Contributing
 
