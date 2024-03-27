@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48E0D6EE2B299B4600FF88E6 /* BanubaSdk in Frameworks */ = {isa = PBXBuildFile; productRef = 48E0D6ED2B299B4600FF88E6 /* BanubaSdk */; };
+		1361B2912BB4662600D89C29 /* BanubaSdk in Frameworks */ = {isa = PBXBuildFile; productRef = 1361B2902BB4662600D89C29 /* BanubaSdk */; };
 		705CD97C261B04D300AF808D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705CD97B261B04D300AF808D /* Assets.xcassets */; };
 		70F658B52617522F002618FE /* EffectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F658B42617522F002618FE /* EffectCollectionViewCell.swift */; };
 		8A61EC9823FFDB3E00469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61EC9723FFDB3E00469AB3 /* AppDelegate.swift */; };
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48E0D6EE2B299B4600FF88E6 /* BanubaSdk in Frameworks */,
+				1361B2912BB4662600D89C29 /* BanubaSdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +64,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1361B28F2BB4662600D89C29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		705CD983261B0A2600AF808D /* Makeup */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +87,7 @@
 				8A61EC9623FFDB3E00469AB3 /* beauty-ios */,
 				BAB41D642417B11C00750CFB /* beauty-iosUITests */,
 				8A61EC9523FFDB3E00469AB3 /* Products */,
+				1361B28F2BB4662600D89C29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,7 +140,7 @@
 			);
 			name = "beauty-ios";
 			packageProductDependencies = (
-				48E0D6ED2B299B4600FF88E6 /* BanubaSdk */,
+				1361B2902BB4662600D89C29 /* BanubaSdk */,
 			);
 			productName = BeautyIOS;
 			productReference = 8A61EC9423FFDB3E00469AB3 /* beauty-ios.app */;
@@ -142,7 +150,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAB41D6C2417B11C00750CFB /* Build configuration list for PBXNativeTarget "beauty-iosUITests" */;
 			buildPhases = (
-				87473CBA293E18478BA5CF3D /* [CP] Check Pods Manifest.lock */,
 				BAB41D5F2417B11C00750CFB /* Sources */,
 				BAB41D602417B11C00750CFB /* Frameworks */,
 				BAB41D612417B11C00750CFB /* Resources */,
@@ -217,31 +224,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		87473CBA293E18478BA5CF3D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-beauty-iosUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A61EC9023FFDB3E00469AB3 /* Sources */ = {
@@ -532,7 +514,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		48E0D6ED2B299B4600FF88E6 /* BanubaSdk */ = {
+		1361B2902BB4662600D89C29 /* BanubaSdk */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 48E0D6EC2B299B4600FF88E6 /* XCRemoteSwiftPackageReference "BanubaSdk" */;
 			productName = BanubaSdk;
