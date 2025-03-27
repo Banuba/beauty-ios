@@ -93,6 +93,7 @@ class CameraViewController: UIViewController {
     private func setupPlayer() {
         player = Player()
         player?.use(input: Camera(cameraDevice: cameraDevice), outputs: [effectView])
+        player?.play()
         currentEffect = player?.load(effect: "Makeup")
     }
     
