@@ -507,8 +507,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sdk-banuba/BanubaSdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 1.17.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
