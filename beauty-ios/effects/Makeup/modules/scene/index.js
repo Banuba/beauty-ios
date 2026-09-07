@@ -1,5 +1,6 @@
 'use strict';
 
+require('bnb_js/global');
 require('bnb_js/console');
 
 const castArray = (value) => (Array.isArray(value) ? value : [value]);
@@ -87,14 +88,14 @@ class Vector4 extends Attribute {
     }
 }
 
-const assets$4 = bnb.scene.getAssetManager();
+const assets$3 = bnb.scene.getAssetManager();
 const createMesh = (filename, name) => {
     /**
      * Backward compatibility with SDK versions < v1.4.0
      * which have a single `AssetManager.createMesh` method
      * instead of `AssetManager.createDynamicMesh` and `AssetManager.createStaticMesh` methods
      */
-    const factory = assets$4;
+    const factory = assets$3;
     let mesh = null;
     if (!mesh && factory.createDynamicMesh)
         mesh = factory.createDynamicMesh(name, filename);
@@ -116,7 +117,7 @@ class Geometry {
             value: void 0
         });
         name !== null && name !== void 0 ? name : (name = id("_scene_mesh"));
-        this.$$ = assets$4.findMesh(name) || createMesh(filename, name);
+        this.$$ = assets$3.findMesh(name) || createMesh(filename, name);
     }
 }
 class PlaneGeometry extends Geometry {
@@ -131,7 +132,13 @@ class QuadGeometry extends Geometry {
 }
 class FaceGeometry extends Geometry {
     constructor(index = 0) {
-        super(`$builtin$meshes/face.stream:${index}`, `_scene_face${index}`);
+        var _a;
+        // compatibility with converted effects and GLTF converter
+        const aliases = [`!bnb_FACE${index}`];
+        if (index === 0)
+            aliases.push("!bnb_FACE", "!glfx_FACE");
+        const name = (_a = aliases.find((alias) => assets$3.findMesh(alias))) !== null && _a !== void 0 ? _a : `_scene_face${index}`;
+        super(`$builtin$meshes/face.stream:${index}`, name);
         Object.defineProperty(this, "index", {
             enumerable: true,
             configurable: true,
@@ -177,7 +184,7 @@ class BeautyMorphing {
             value: void 0
         });
         const name = id("_scene_beauty_morphing");
-        this.$$ = assets$4.findMesh(name) || createMesh("$builtin$meshes/beauty", name);
+        this.$$ = assets$3.findMesh(name) || createMesh("$builtin$meshes/beauty", name);
     }
     weight(type, value) {
         if (typeof value !== "undefined") {
@@ -215,7 +222,7 @@ class FaceMorphing {
         const name = filename === "$builtin$meshes/lips_morph"
             ? id("_scene_lips_morphing")
             : id("_scene_face_morphing");
-        this.$$ = assets$4.findMesh(name) || createMesh(filename, name);
+        this.$$ = assets$3.findMesh(name) || createMesh(filename, name);
     }
     weight(value) {
         if (typeof value !== "undefined") {
@@ -232,9 +239,9 @@ class FaceMorphing {
 }
 const isGeometry = (obj) => obj instanceof PlaneGeometry || obj instanceof QuadGeometry || obj instanceof FaceGeometry;
 
-const assets$3 = bnb.scene.getAssetManager();
+const assets$2 = bnb.scene.getAssetManager();
 class ShaderMaterial {
-    constructor({ vertexShader, fragmentShader, builtIns = [], uniforms = {}, state = {}, }) {
+    constructor({ vertexShader, fragmentShader, builtIns = [], uniforms = {}, state = {}, instance_count = 0, }) {
         var _a, _b, _c, _d, _e, _f;
         Object.defineProperty(this, "$$", {
             enumerable: true,
@@ -257,10 +264,8 @@ class ShaderMaterial {
         }
         const vs = vertexShader.replace(/\.vert$/, "");
         const fs = fragmentShader.replace(/\.frag$/, "");
-        if (vs !== fs)
-            throw new Error(`Vertex shader name should match fragment shader name. Received: "${vertexShader}", "${fragmentShader}"`);
         const name = isBuiltin ? vs : id(`${vs}.`);
-        const material = (_a = assets$3.findMaterial(name)) !== null && _a !== void 0 ? _a : assets$3.createMaterial(name, vs);
+        const material = (_a = assets$2.findMaterial(name)) !== null && _a !== void 0 ? _a : assets$2.createMaterialExt(name, vs, fs, instance_count, []);
         material.setState(new bnb.State(bnb.BlendingMode[(_b = state.blending) !== null && _b !== void 0 ? _b : "ALPHA"], (_c = state.zWrite) !== null && _c !== void 0 ? _c : false, (_d = state.zTest) !== null && _d !== void 0 ? _d : false, (_e = state.colorWrite) !== null && _e !== void 0 ? _e : true, (_f = state.backFaces) !== null && _f !== void 0 ? _f : false));
         for (let name in uniforms) {
             const uniform = uniforms[name];
@@ -309,7 +314,7 @@ class BlitMaterial extends ShaderMaterial {
             vertexShader: shader,
             fragmentShader: shader,
             uniforms: { tex_src: texture },
-            state,
+            state
         });
     }
 }
@@ -373,17 +378,17 @@ const getFace = (mesh) => {
     return getFace(mesh["_parent"]);
 };
 
-const assets$2 = bnb.scene.getAssetManager();
+const assets$1 = bnb.scene.getAssetManager();
 class Attachment {
-    constructor({ type, filtering, info = {}, } = {}) {
+    constructor({ type = "COLOR", filtering, info = {}, } = {}) {
         Object.defineProperty(this, "$$", {
             enumerable: true,
             configurable: true,
             writable: true,
             value: void 0
         });
-        const name = id("_scene_attachment");
-        const image = assets$2.findImage(name) || assets$2.createImage(name, bnb.ImageType.ATTACHMENT);
+        const name = id(`_scene_${type.toLocaleLowerCase()}_attachment`);
+        const image = assets$1.findImage(name) || assets$1.createImage(name, bnb.ImageType.ATTACHMENT);
         const attachment = image.asAttachment();
         if (typeof type !== "undefined")
             attachment.setType(bnb.AttachmentType[type]);
@@ -405,6 +410,9 @@ class Attachment {
             _info.storedBehaviour = bnb.AttachmentStoreOp[info.store];
             attachment.setInfo(_info);
         }
+        if (typeof info.format !== "undefined") {
+            attachment.setFormat(bnb.PixelFormatType[info.format]);
+        }
         this.$$ = image;
     }
     get width() {
@@ -422,20 +430,28 @@ class RenderTarget {
             writable: true,
             value: void 0
         });
+        Object.defineProperty(this, "_attachments", {
+            enumerable: true,
+            configurable: true,
+            writable: true,
+            value: []
+        });
         if (!target) {
             const targetName = offscreen
                 ? id("_scene_offscreen_render_target")
                 : id("_scene_render_target");
-            target = assets$2.findRenderTarget(targetName);
+            target = assets$1.findRenderTarget(targetName);
             if (!target) {
-                target = assets$2.createRenderTarget(targetName);
+                target = assets$1.createRenderTarget(targetName);
                 const color = new Attachment({ filtering, info });
                 target.addAttachment(color.$$);
+                this._attachments.push(color);
                 const isDepthAttachmentSupported = typeof color.$$.asAttachment().setType !== "undefined";
                 // Backward compatibility with SDK v1.2.1 that has no `Attachment.setType` binding
                 if (isDepthAttachmentSupported) {
                     const depth = new Attachment({ type: "DEPTH" });
                     target.addAttachment(depth.$$);
+                    this._attachments.push(depth);
                 }
             }
         }
@@ -446,6 +462,9 @@ class RenderTarget {
         this.$$ = target;
     }
     get texture() {
+        if (this._attachments.length > 0) {
+            return this._attachments[0];
+        }
         const [color] = this.$$.getAttachments();
         return { $$: color };
     }
@@ -525,12 +544,12 @@ class RenderTarget {
                         bnb.scene.getRenderList().addTask(layer, this.$$);
                     }
                     const morphName = m.$$.getName();
-                    let morph = assets$2.findMorph(morphName);
+                    let morph = assets$1.findMorph(morphName);
                     if (!morph) {
                         let type = m instanceof BeautyMorphing ? bnb.MorphingType.BEAUTY : bnb.MorphingType.MESH;
                         if (morphName.startsWith("_scene_lips_morphing"))
                             type = bnb.MorphingType.LIPS;
-                        morph = assets$2.createMorph(morphName, type);
+                        morph = assets$1.createMorph(morphName, type);
                         morph.setWarpMesh(m.$$);
                     }
                     const entityName = `${morphName}_face${mesh.geometry.index}`;
@@ -596,9 +615,9 @@ class FaceTracker {
         if (!tracker) {
             tracker = bnb.FaceTracker.create();
             const faceName = `face${index}`;
-            let face = assets$2.findFace(faceName);
+            let face = assets$1.findFace(faceName);
             if (!face) {
-                face = assets$2.createFace(faceName);
+                face = assets$1.createFace(faceName);
                 face.setFaceMesh(mesh.geometry.$$);
                 face.setIndex(index);
             }
@@ -633,7 +652,7 @@ const NullLut = "modules/scene/_null_lut_.png";
 
 const NullImage = "modules/scene/_null_image_.png";
 
-const assets$1 = bnb.scene.getAssetManager();
+const assets = bnb.scene.getAssetManager();
 // built in
 class Camera {
     constructor() {
@@ -643,9 +662,9 @@ class Camera {
             writable: true,
             value: void 0
         });
-        const camera = assets$1.findImage("camera") ||
-            assets$1.findImage("camera_color") || // compatibility with GLTF converter
-            assets$1.findImage("ComposerRT_color"); // backward compatibility with old-converted effects
+        const camera = assets.findImage("camera") ||
+            assets.findImage("camera_color") || // compatibility with GLTF converter
+            assets.findImage("ComposerRT_color"); // backward compatibility with old-converted effects
         if (!camera)
             throw new Error("Unable to find 'camera' image which is mandatory");
         this.$$ = camera;
@@ -667,9 +686,9 @@ class LUT {
             value: ""
         });
         const name = id("_scene_lut");
-        let lut = assets$1.findImage(name);
+        let lut = assets.findImage(name);
         if (!lut) {
-            lut = assets$1.createImage(name, bnb.ImageType.LUT);
+            lut = assets.createImage(name, bnb.ImageType.LUT);
             if (!filename)
                 lut.asWeightedLut().load(NullLut);
         }
@@ -700,9 +719,9 @@ class Image {
             value: ""
         });
         const name = id("_scene_image");
-        let image = assets$1.findImage(name);
+        let image = assets.findImage(name);
         if (!image) {
-            image = assets$1.createImage(name, bnb.ImageType.TEXTURE);
+            image = assets.createImage(name, bnb.ImageType.TEXTURE);
             if (!filename)
                 image.asTexture().load(NullImage);
         }
@@ -739,14 +758,14 @@ class SegmentationMask {
             value: void 0
         });
         const name = `_scene_seg_mask_${type}`;
-        let mask = assets$1.findImage(name);
+        let mask = assets.findImage(name);
         // compatibility with converted legacy effects
         if (!mask) {
             const query = type === "L_EYE" ? "left_eye" : type === "R_EYE" ? "right_eye" : type;
-            mask = assets$1.findImage(query.toLocaleLowerCase());
+            mask = assets.findImage(query.toLocaleLowerCase());
         }
         if (!mask) {
-            mask = assets$1.createSegmentationMask(name, bnb.SegmentationMaskType[type]);
+            mask = assets.createSegmentationMask(name, bnb.SegmentationMaskType[type]);
         }
         this.$$ = mask;
     }
@@ -758,38 +777,48 @@ class SegmentationMask {
     }
 }
 
-const assets = bnb.scene.getAssetManager();
-// compatibility with converted legacy effects
-const target = assets.findRenderTarget("finalColorFilterRT") ||
-    assets.findRenderTarget("EffectRT") ||
-    assets.findRenderTarget("EffectRT0");
-let screen = new RenderTarget({ target });
-if (!target) {
-    const CameraBackground = new Mesh(new PlaneGeometry(), new BlitMaterial(new Camera(), { blending: "OFF" }));
-    screen.add(CameraBackground);
-}
-const add = (...meshes) => {
-    for (const mesh of meshes) {
-        screen.add(mesh);
-    }
-};
 class Scene {
     constructor() {
-        Object.defineProperty(this, "_target", {
+        Object.defineProperty(this, "_texture", {
             enumerable: true,
             configurable: true,
             writable: true,
             value: void 0
         });
-        this._target = screen;
-        const scene = new Mesh(new PlaneGeometry(), new BlitMaterial(this._target.texture, { blending: "OFF" }));
-        screen = new RenderTarget();
-        screen.add(scene);
+        this._texture = Scene._renderTarget.texture;
+        const scene = new Mesh(new PlaneGeometry(), new BlitMaterial(this._texture, { blending: "OFF" }));
+        Scene._renderTarget = new RenderTarget().add(scene);
+    }
+    static get _renderTarget() {
+        if (Scene.__currentRenderTarget)
+            return Scene.__currentRenderTarget;
+        const list = bnb.scene.getRenderList();
+        // compatibility with converted legacy effects
+        let target = null;
+        for (let i = list.getTasksCount() - 1; !target && i >= 0; --i) {
+            const t = list.getTaskTarget(i);
+            if (!t.getName().startsWith("_scene_"))
+                target = t;
+        }
+        const currentRenderTarget = new RenderTarget({ target });
+        if (!target) {
+            const CameraBackground = new Mesh(new PlaneGeometry(), new BlitMaterial(new Camera(), { blending: "OFF" }));
+            currentRenderTarget.add(CameraBackground);
+        }
+        return (Scene.__currentRenderTarget = currentRenderTarget);
+    }
+    static set _renderTarget(value) {
+        Scene.__currentRenderTarget = value;
     }
     get $$() {
-        return this._target.texture.$$;
+        return this._texture.$$;
     }
 }
+const add = (...meshes) => {
+    for (const mesh of meshes) {
+        Scene["_renderTarget"].add(mesh);
+    }
+};
 
 const refs = new Map();
 const enable = (feature, consumer) => {

@@ -49,7 +49,8 @@ mat4 get_bone(float b, float db)
         BNB_TEXTURE_2D(BNB_SAMPLER_2D(bnb_BONES), vec2(b, 0.)),
         BNB_TEXTURE_2D(BNB_SAMPLER_2D(bnb_BONES), vec2(b + db, 0.)),
         BNB_TEXTURE_2D(BNB_SAMPLER_2D(bnb_BONES), vec2(b + 2. * db, 0.)),
-        vec4(0., 0., 0., 1.)));
+        vec4(0., 0., 0., 1.)
+    ));
 
     vec2 morph_uv = bnb_morph_coord(m[3].xyz) * 0.5 + 0.5;
     vec3 translation = BNB_TEXTURE_2D(BNB_SAMPLER_2D(bnb_MORPH), morph_uv).xyz;
@@ -59,7 +60,8 @@ mat4 get_bone(float b, float db)
         BNB_TEXTURE_2D(BNB_SAMPLER_2D(bnb_BONES), vec2(b, 1.)),
         BNB_TEXTURE_2D(BNB_SAMPLER_2D(bnb_BONES), vec2(b + db, 1.)),
         BNB_TEXTURE_2D(BNB_SAMPLER_2D(bnb_BONES), vec2(b + 2. * db, 1.)),
-        vec4(0., 0., 0., 1.)));
+        vec4(0., 0., 0., 1.)
+    ));
 
     return m * ibp;
 }
@@ -90,7 +92,8 @@ mat4 get_bone(uint bone_idx)
         texelFetch(BNB_SAMPLER_2D(bnb_BONES), ivec2(b, 0), 0),
         texelFetch(BNB_SAMPLER_2D(bnb_BONES), ivec2(b + 1, 0), 0),
         texelFetch(BNB_SAMPLER_2D(bnb_BONES), ivec2(b + 2, 0), 0),
-        vec4(0., 0., 0., 1.)));
+        vec4(0., 0., 0., 1.)
+    ));
 
     vec2 morph_uv = bnb_morph_coord(m[3].xyz) * 0.5 + 0.5;
     #ifdef BNB_VK_1
@@ -103,7 +106,8 @@ mat4 get_bone(uint bone_idx)
         texelFetch(BNB_SAMPLER_2D(bnb_BONES), ivec2(b, 1), 0),
         texelFetch(BNB_SAMPLER_2D(bnb_BONES), ivec2(b + 1, 1), 0),
         texelFetch(BNB_SAMPLER_2D(bnb_BONES), ivec2(b + 2, 1), 0),
-        vec4(0., 0., 0., 1.)));
+        vec4(0., 0., 0., 1.)
+    ));
 
     return m * ibp;
 }

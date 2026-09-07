@@ -14,15 +14,16 @@ BNB_DECLARE_SAMPLER_2D(4, 5, tex_r_eye_mask);
 
 vec4 color(vec4 base, vec4 target)
 {
-    vec3 base_LCh = bnb_rgb_to_LCh(base.rgb);
-    vec3 target_LCh = bnb_rgb_to_LCh(target.rgb);
-
-    vec3 res_LCh = vec3(
-        base_LCh.x,
-        target_LCh.y,
-        target_LCh.z);
-
-    vec3 res_rgb = bnb_LCh_to_rgb(res_LCh);
+    vec4 base_yuva = bnb_rgba_to_yuva(base);
+    vec4 target_yuva = bnb_rgba_to_yuva(target);
+    float y_norm = 1. / 0.7;
+    vec4 res_yuva = vec4(
+        base_yuva.x * (target_yuva.x * y_norm),
+        target_yuva.y,
+        target_yuva.z,
+        target_yuva.w
+    );
+    vec3 res_rgb = bnb_yuva_to_rgba(res_yuva).rgb;
 
     vec3 colored = mix(base.rgb, res_rgb, target.a);
 
@@ -39,5 +40,5 @@ void main()
 
     vec4 colored = color(camera, var_eyes_color);
 
-    bnb_FragColor = vec4(colored.rgb, var_eyes_color.a * mask);
+    bnb_FragColor = vec4(colored.rgb, mask);
 }

@@ -1,5 +1,6 @@
 'use strict';
 
+require('bnb_js/global');
 const modules_scene_index = require('../scene/index.js');
 const modules_hair_gradient_index = require('./gradient/index.js');
 
@@ -45,6 +46,12 @@ class Hair {
                 this._hair.material.uniforms.var_hair_color3.value(),
                 this._hair.material.uniforms.var_hair_color4.value(),
             ].some(([, , , a]) => a > 0);
+            this._hair.visible(isColored);
+            if (!isColored) {
+                this._hair.material.uniforms.tex_hair_mask.disable();
+                this._hair.material.uniforms.tex_strands_mask.disable();
+                return;
+            }
             if (mode === ColoringMode.Strands) {
                 this._hair.material.uniforms.tex_hair_mask.disable();
                 this._hair.material.uniforms.tex_strands_mask.enable();
@@ -53,7 +60,6 @@ class Hair {
                 this._hair.material.uniforms.tex_strands_mask.disable();
                 this._hair.material.uniforms.tex_hair_mask.enable();
             }
-            this._hair.visible(isColored);
         };
         this._hair.material.uniforms.var_hair_color0.subscribe(onChange);
         this._hair.material.uniforms.var_hair_color1.subscribe(onChange);
@@ -73,8 +79,12 @@ class Hair {
             const color = (_a = colors[i]) !== null && _a !== void 0 ? _a : "0 0 0 0";
             const idx = i;
             const uniform = `var_hair_color${idx}`;
-            this._hair.material.uniforms[uniform].value(color);
+            if (typeof color !== "undefined") {
+                this._hair.material.uniforms[uniform].value(color);
+            }
+            colors[i] = this._hair.material.uniforms[uniform].value().join(" ");
         }
+        return colors;
     }
     strands(first, ...rest) {
         var _a;
@@ -87,8 +97,12 @@ class Hair {
             const color = (_a = colors[i]) !== null && _a !== void 0 ? _a : "0 0 0 0";
             const idx = i;
             const uniform = `var_hair_color${idx}`;
-            this._hair.material.uniforms[uniform].value(color);
+            if (typeof color !== "undefined") {
+                this._hair.material.uniforms[uniform].value(color);
+            }
+            colors[i] = this._hair.material.uniforms[uniform].value().join(" ");
         }
+        return colors;
     }
     clear() {
         this.strands("0 0 0 0");

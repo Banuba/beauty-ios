@@ -38,7 +38,8 @@ vec3 lipstik(vec3 bg)
         var_lips_saturation_brightness.x,
         var_lips_shine_intensity_bleeding_scale.x,
         var_lips_shine_intensity_bleeding_scale.y,
-        var_lips_saturation_brightness.y);
+        var_lips_saturation_brightness.y
+    );
 
     float sCoef = js_lips_shine.x;
 
@@ -53,7 +54,8 @@ vec3 lipstik(vec3 bg)
     vec3 color_lipstick = vec3(
         js_color_hsv.r,
         color_hsv_s,
-        bg_color_hsv.b);
+        bg_color_hsv.b
+    );
 
     return color_lipstick;
 }
@@ -70,12 +72,14 @@ void main()
         var_lips_saturation_brightness.x,
         var_lips_shine_intensity_bleeding_scale.x,
         var_lips_shine_intensity_bleeding_scale.y,
-        var_lips_saturation_brightness.y);
+        var_lips_saturation_brightness.y
+    );
     vec4 js_lips_glitter = vec4(
         var_lips_glitter_bleeding_intensity_grain.x,
         var_lips_glitter_bleeding_intensity_grain.y,
         var_lips_glitter_bleeding_intensity_grain.z,
-        var_lips_shine_intensity_bleeding_scale.z);
+        var_lips_shine_intensity_bleeding_scale.z
+    );
 
     float nUVScale = bnb_SCREEN.y / (js_lips_glitter.z * 256.);
     vec4 noise = BNB_TEXTURE_2D(BNB_SAMPLER_2D(tex_noise), var_uv.zw * nUVScale) * 2. - 1.;
@@ -126,7 +130,8 @@ void main()
     vec3 color_shine = vec3(
         color_lipstick.x,
         color_lipstick.y * (1. - sCoef1 * y),
-        v3);
+        v3
+    );
 
     color = mix(color, hsv2rgb(color_shine), shineAlpha);
 

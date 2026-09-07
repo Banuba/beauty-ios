@@ -60,7 +60,8 @@ vec4 color(vec4 base, vec4 target, float alpha)
 
     vec3 pixel1 = rgb2yuv(base.rgb);
     vec3 yuv1 = rgb2yuv(target.rgb);
-
+    float y_norm = 1. / 0.5;
+    pixel1[0] = pixel1[0] * (yuv1[0] * y_norm);
     pixel1[1] = mix(pixel1[1], mix(pixel1[1], yuv1[1], beta), alpha);
     pixel1[2] = mix(pixel1[2], mix(pixel1[2], yuv1[2], beta), alpha);
 

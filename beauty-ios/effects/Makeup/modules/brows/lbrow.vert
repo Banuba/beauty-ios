@@ -27,7 +27,8 @@ void main()
     mat3 brow_m = bnb_inverse_trs2d(mat3(
         left_brow_nn_transform[0].xyz,
         left_brow_nn_transform[1].xyz,
-        vec3(0., 0., 1.)));
+        vec3(0., 0., 1.)
+    ));
 
     gl_Position = vec4((vec3(attrib_uv, 1.) * brow_m).xy, 0., 1.);
 

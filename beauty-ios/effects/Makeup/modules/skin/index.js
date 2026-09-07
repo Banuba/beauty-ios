@@ -1,6 +1,80 @@
 'use strict';
 
+require('bnb_js/global');
 const modules_scene_index = require('../scene/index.js');
+
+function SmoothTex() {
+    const cam_downsize_pass = new modules_scene_index.Pass(new modules_scene_index.ShaderMaterial({
+        vertexShader: "$builtin$materials/copy_pixels.vert",
+        fragmentShader: "$builtin$materials/copy_pixels.frag",
+        uniforms: {
+            tex_src: new modules_scene_index.Camera(),
+        },
+        state: {
+            backFaces: true,
+        },
+    }), new modules_scene_index.PlaneGeometry(), {
+        filtering: "LINEAR",
+        width: 0,
+        height: 160,
+        info: {
+            format: "RGBA8",
+            load: "CLEAR"
+        }
+    });
+
+    const hblur_pass = new modules_scene_index.Pass(new modules_scene_index.ShaderMaterial({
+        vertexShader: "modules/skin/hblur.vert",
+        fragmentShader: "modules/skin/hblur.frag",
+        uniforms: {
+            tex: cam_downsize_pass,
+        },
+        state: {
+            backFaces: true,
+        },
+    }), new modules_scene_index.PlaneGeometry(), {
+        filtering: "LINEAR",
+        width: 0,
+        height: 160,
+        info: {
+            format: "RGBA8",
+            load: "CLEAR"
+        }
+    });
+
+    const vblur_pass = new modules_scene_index.Pass(new modules_scene_index.ShaderMaterial({
+        vertexShader: "modules/skin/vblur.vert",
+        fragmentShader: "modules/skin/vblur.frag",
+        uniforms: {
+            tex: hblur_pass,
+        },
+        state: {
+            backFaces: true,
+        },
+    }), new modules_scene_index.PlaneGeometry(), {
+        filtering: "LINEAR",
+        width: 0,
+        height: 160,
+        info: {
+            format: "RGBA8",
+            load: "CLEAR"
+        }
+    });
+
+    const smooth_pass = new modules_scene_index.Pass(new modules_scene_index.ShaderMaterial({
+        vertexShader: "modules/skin/smooth.vert",
+        fragmentShader: "modules/skin/smooth.frag",
+        uniforms: {
+            tex: new modules_scene_index.Camera(),
+            blur_tex: vblur_pass
+        },
+        state: {
+            backFaces: true,
+        },
+    }), new modules_scene_index.PlaneGeometry());
+
+    return smooth_pass;
+}
 
 const SofteningVertexShader = "modules/skin/softening.vert";
 
@@ -20,7 +94,7 @@ class Skin {
                 vertexShader: SkinVertexShader,
                 fragmentShader: SkinFragmentShader,
                 uniforms: {
-                    tex_camera: new modules_scene_index.Camera(),
+                    tex_camera: SmoothTex(),
                     tex_mask: new modules_scene_index.SegmentationMask("SKIN"),
                     var_skin_color: new modules_scene_index.Vector4(0, 0, 0, 0),
                     var_skin_softening_strength: new modules_scene_index.Vector4(0),
@@ -40,7 +114,7 @@ class Skin {
                 vertexShader: SofteningVertexShader,
                 fragmentShader: SofteningFragmentShader,
                 uniforms: {
-                    tex_camera: new modules_scene_index.Camera(),
+                    tex_camera: SmoothTex(),
                     var_skin_softening_strength: this._skin.material.uniforms.var_skin_softening_strength,
                 },
                 state: { zTest: true, zWrite: true },

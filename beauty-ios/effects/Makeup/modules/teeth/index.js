@@ -1,5 +1,6 @@
 'use strict';
 
+require('bnb_js/global');
 const modules_scene_index = require('../scene/index.js');
 
 const vertexShader = "modules/teeth/teeth.vert";
@@ -31,7 +32,7 @@ class Teeth {
     whitening(strength) {
         if (typeof strength !== "undefined")
             this._teeth.material.uniforms.var_teeth_whitening_strength.value(strength);
-        this._teeth.material.uniforms.var_teeth_whitening_strength.value()[0];
+        return this._teeth.material.uniforms.var_teeth_whitening_strength.value()[0];
     }
     /** Resets any settings applied */
     clear() {

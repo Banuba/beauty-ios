@@ -1,5 +1,6 @@
 'use strict';
 
+require('bnb_js/global');
 const modules_scene_index = require('../scene/index.js');
 
 const EyelashesMesh = "modules/eyelashes/eyelashes.bsm2";

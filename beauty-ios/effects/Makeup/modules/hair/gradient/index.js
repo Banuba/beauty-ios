@@ -1,5 +1,6 @@
 'use strict';
 
+require('bnb_js/global');
 const modules_scene_index = require('../../scene/index.js');
 const modules_hair_gradient_downscale_index = require('./downscale/index.js');
 

@@ -1,5 +1,6 @@
 'use strict';
 
+require('bnb_js/global');
 const modules_scene_index = require('../scene/index.js');
 
 const Flare = "modules/eyes/FLARE_38_512.png";

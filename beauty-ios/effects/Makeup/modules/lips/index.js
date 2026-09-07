@@ -1,5 +1,6 @@
 'use strict';
 
+require('bnb_js/global');
 const modules_scene_index = require('../scene/index.js');
 
 const GlitterTexture = "modules/lips/glitter.png";
@@ -176,31 +177,31 @@ class Lips {
     }
     /** Sets the lips color saturation */
     saturation(value) {
-        this._shared.var_lips_saturation_brightness.x(value);
+        return this._shared.var_lips_saturation_brightness.x(value);
     }
     /** Sets the lips color brightness */
     brightness(value) {
-        this._shared.var_lips_saturation_brightness.y(value);
+        return this._shared.var_lips_saturation_brightness.y(value);
     }
     /** Sets the lips shine intensity */
     shineIntensity(value) {
-        this._shiny.material.uniforms.var_lips_shine_intensity_bleeding_scale.x(value);
+        return this._shiny.material.uniforms.var_lips_shine_intensity_bleeding_scale.x(value);
     }
     /** Sets the lips shine bleeding */
     shineBleeding(value) {
-        this._shiny.material.uniforms.var_lips_shine_intensity_bleeding_scale.y(value);
+        return this._shiny.material.uniforms.var_lips_shine_intensity_bleeding_scale.y(value);
     }
     shineScale(value) {
-        this._shiny.material.uniforms.var_lips_shine_intensity_bleeding_scale.z(value);
+        return this._shiny.material.uniforms.var_lips_shine_intensity_bleeding_scale.z(value);
     }
     glitterGrain(value) {
-        this._shiny.material.uniforms.var_lips_glitter_bleeding_intensity_grain.z(value);
+        return this._shiny.material.uniforms.var_lips_glitter_bleeding_intensity_grain.z(value);
     }
     glitterIntensity(value) {
-        this._shiny.material.uniforms.var_lips_glitter_bleeding_intensity_grain.y(value);
+        return this._shiny.material.uniforms.var_lips_glitter_bleeding_intensity_grain.y(value);
     }
     glitterBleeding(value) {
-        this._shiny.material.uniforms.var_lips_glitter_bleeding_intensity_grain.x(value);
+        return this._shiny.material.uniforms.var_lips_glitter_bleeding_intensity_grain.x(value);
     }
     /** Removes the lips color, resets any setting applied */
     clear() {
